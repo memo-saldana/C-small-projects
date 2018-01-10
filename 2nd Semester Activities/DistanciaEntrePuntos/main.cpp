@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-void LlenarDatos(double MatrizDePuntos[][])
+void LlenarDatos(double MatrizDePuntos[8][])
 {
     for(int i=0;i<8;i++)
     {
@@ -23,19 +23,19 @@ void LlenarDatos(double MatrizDePuntos[][])
     }
 }
 
-double CalculaDistancias(double MatrizDePuntos[][])
+void CalculaDistancias(double MatrizDePuntos[8][])
 {
     double Resultado,Minimo=100000;
     int Punto1, Punto2;
-    for(int i=0;i<8;i++)
+    for(int i=0;i<7;i++)
     {
-        for(int j=i+1;j++)
+        for(int j=i+1;j<8;j++)
         {
             Resultado= sqrt(pow((MatrizDePuntos[i][0]-MatrizDePuntos[j][0]),2)+pow((MatrizDePuntos[i][1]-MatrizDePuntos[j][1]),2));
             if(Resultado<Minimo)
             {
                 Punto1=i;
-                Punto2=j
+                Punto2=j;
             }
         }
     }
@@ -49,4 +49,6 @@ int main()
     double MatrizDeDatos[8][2];
     LlenarDatos(MatrizDeDatos[8][2]);
     CalculaDistancias(MatrizDeDatos[8][2]);
+
+    return 0;
 }
