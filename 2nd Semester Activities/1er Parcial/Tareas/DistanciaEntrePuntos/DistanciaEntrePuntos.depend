@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1515706659 source:c:\users\memos\documents\github\c-small-projects\2nd semester activities\distanciaentrepuntos\main.cpp
+	<iostream>
+	<cmath>
+	<algorithm>
+
+1515717608 source:c:\users\memos\documents\github\c-small-projects\2nd semester activities\1er parcial\tareas\distanciaentrepuntos\main.cpp
+	<iostream>
+	<cmath>
+	<algorithm>
+
