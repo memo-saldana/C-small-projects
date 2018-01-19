@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1516312075 source:c:\users\memos\documents\github\c-small-projects\2nd semester activities\1er parcial\ejercicios\archivos ejercicio clase\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+
