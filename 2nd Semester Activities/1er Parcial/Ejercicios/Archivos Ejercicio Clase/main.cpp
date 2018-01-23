@@ -5,8 +5,8 @@ using namespace std;
 
 int main(){
     char Menu,MasAlumnos;
-    bool Check=false, Check2=true;
-    int i=1, ContadorAlum;
+    bool Check=false;
+    int i=1;
     string Alumno;
     ofstream ArchAlumnos;
 
@@ -21,63 +21,62 @@ int main(){
 
         switch(Menu){
 
-        case '1':
+            case '1':
 
-            Check=true;
-            ArchAlumnos.open("Alumnos.txt");
+                Check=true;
+                ArchAlumnos.open("Alumnos.txt");
 
-            while(MasAlumnos!='n'){
-                cout<<"Teclea la edad y el nombre del alumno separados por un espacio."<<endl;
-                cin.ignore();
-                getline(cin, Alumno);
-
-
-                ArchAlumnos<<Alumno<<endl;
-                cout<<"Deseas Agregar otro alumno? (s/n)";
-                cin>>MasAlumnos;
+                while(MasAlumnos!='n'){
+                    cout<<"Teclea la edad y el nombre del alumno separados por un espacio."<<endl;
+                    cin.ignore();
+                    getline(cin, Alumno);
 
 
-            }
-            ArchAlumnos.close();
-            break;
+                    ArchAlumnos<<Alumno<<endl;
+                    cout<<"Deseas Agregar otro alumno? (s/n)";
+                    cin>>MasAlumnos;
 
-        case '2':
-            if(!Check){
-
-                cout<<"Debe hacer la lista de alumnos primero." <<endl;
+                }
+                ArchAlumnos.close();
                 break;
-            }
-            else{
 
-                ContadorAlum=0;
-                cout<<"Tecle la edad que busca."<<endl;
-                int edadMayor,edad,AlumnosMayores=0;
-                cin>>edadMayor;
+            case '2':
                 ifstream ArchEdad;
                 ArchEdad.open("Alumnos.txt");
+                if(!ArchEdad.is_open()){
 
-                for(int i=0;i<ContadorAlum;i++)
-                {
-                    ArchEdad>>edad;
+                    cout<<"Debe hacer la lista de alumnos primero." <<endl;
+                    break;
+                }
+                else{
+
+                    int edadMayor,edad,AlumnosMayores=0;
+                    cout<<"Tecle la edad que busca."<<endl;
+                    cin>>edadMayor;
+
+
+                    while(ArchEdad>>edad){
+
                     getline(ArchEdad,Alumno);
                     if(edad>edadMayor){
                         AlumnosMayores++;
                     }
                 }
 
-                cout<<"La cantidad de alumnos mayores de "<<edadMayor<<" es de "<<AlumnosMayores<<endl;
-                ArchEdad.close();
 
-            }
-            break;
+                    cout<<"La cantidad de alumnos mayores de "<<edadMayor<<" es de "<<AlumnosMayores<<endl;
+                    ArchEdad.close();
 
-        case '3': return 0;
+                }
+                break;
 
-        default:
-            cout<<"Opcion erronea, intente otra vez."<<endl;
+            case '3':
+                return 0;
+
+            default:
+                cout<<"Opcion erronea, intente otra vez."<<endl;
         }
     }
-    ofstream ArchSal;
 
 
     return 0;
