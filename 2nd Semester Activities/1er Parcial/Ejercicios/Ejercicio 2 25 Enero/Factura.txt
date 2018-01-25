@@ -1,0 +1,6 @@
+	FACTURA
+Clave	Cantidad	 Precio Unitario	Precio
+153	2		 12.5			25
+643	1		 7.5			7.5
+198	5		 10			50
+			 Total			82.5
