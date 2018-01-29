@@ -1,6 +1,6 @@
 //Descripcion: Analiza una lista de puntos para encontrar los mas cercanos.
 //Autor: Jose Guilllermo Saldana Cardenas   A01039888
-//Fecha:11 enero 2018
+//Fecha: 29 enero 2018
 #include <iostream>
 #include <cmath>
 #include <algorithm>
