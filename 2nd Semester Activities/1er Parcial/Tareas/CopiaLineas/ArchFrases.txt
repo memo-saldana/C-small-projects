@@ -1,0 +1,6 @@
+Este es un ejemplo
+de lo que puede venir
+en el archivo de entrada
+y que se debe copiar
+si existen las suficiente
+líneas para hacerlo
