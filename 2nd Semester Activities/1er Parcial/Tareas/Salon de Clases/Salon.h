@@ -1,13 +1,13 @@
 #ifndef SALON_H_INCLUDED
 #define SALON_H_INCLUDED
 
-Class Salon {
+class Salon {
 
 private:
-    int Capacidad;
-    string NombreClase;
-    int Inscritos;
-    int NumSalon;
+    int capacidad;
+    string nombreClase;
+    int inscritos;
+    int numSalon;
 
 public:
     Salon();
@@ -19,39 +19,60 @@ public:
     void setNombreClase(string str);
     string getNombreClase();
 
-    void InscribirAlumnos(int cant);
+    void setInscritos(int n);
+    int getInscritos();
 
-}
+    void setNumSalon(int n);
+    int getNumSalon();
+
+    void inscribirAlumnos(int cant);
+
+};
 
 Salon::Salon(){
-    Capacidad=0;
-    NombreClase="";
-    Inscritos=0;
-    NumSalon=0;
+    capacidad=0;
+    nombreClase="";
+    inscritos=0;
+    numSalon=0;
 }
 Salon::Salon(int cap, string str, int n, int num){
-    Capacidad=cap;
-    NombreClase=str;
-    Inscritos=n;
-    NumSalon=num;
+    capacidad=cap;
+    nombreClase=str;
+    inscritos=n;
+    numSalon=num;
 }
 
 void Salon::setCapacidad(int n){
-    Capacidad=n;
+    capacidad=n;
 }
 int Salon::getCapacidad(){
-    return Capacidad;
+    return capacidad;
 }
 
 void Salon::setNombreClase(string str){
-    NombreClase=str;
+    nombreClase=str;
 }
 string Salon::getNombreClase(){
-    return NombreClase;
+    return nombreClase;
 }
 
-void Salon::InscribirAlumnos(int cant){
-    Inscritos+=cant;
+void Salon::setInscritos(int n){
+    inscritos=n;
+}
+
+int Salon::getInscritos(){
+    return inscritos;
+}
+
+void Salon::setNumSalon(int n){
+    numSalon=n;
+}
+int Salon::getNumSalon(){
+    return numSalon;
+}
+
+void Salon::inscribirAlumnos(int cant){
+    inscritos+=cant;
 }
 
 #endif // SALON_H_INCLUDED

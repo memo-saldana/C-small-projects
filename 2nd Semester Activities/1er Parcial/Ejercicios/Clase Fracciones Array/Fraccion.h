@@ -15,7 +15,7 @@ public:
     void setDen(int d);
     int getNum();
     int getDen();
-    double CalcValorReal();
+    double calcValorReal();
 
 };
 
@@ -41,7 +41,7 @@ int Fraccion::getNum(){
 int Fraccion::getDen(){
     return den;
 }
-double Fraccion::CalcValorReal(){
+double Fraccion::calcValorReal(){
 
     return ((double)num/den);
 

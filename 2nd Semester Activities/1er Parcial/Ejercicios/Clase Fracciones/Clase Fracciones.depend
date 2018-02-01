@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1517518030 source:c:\users\memos\documents\github\c-small-projects\2nd semester activities\1er parcial\ejercicios\clase fracciones\main.cpp
+	<iostream>
+	<iomanip>
+	"Fraccion.h"
+
+1517518071 c:\users\memos\documents\github\c-small-projects\2nd semester activities\1er parcial\ejercicios\clase fracciones\fraccion.h
+
