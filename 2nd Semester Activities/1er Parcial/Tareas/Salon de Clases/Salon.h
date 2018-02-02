@@ -4,15 +4,16 @@
 class Salon {
 
 private:
-    int capacidad;
+    //Atributos privados
+    int capacidad,inscritos,numSalon;
     string nombreClase;
-    int inscritos;
-    int numSalon;
 
 public:
+    //Constructores default y con parametros
     Salon();
     Salon(int cap, string str, int n, int num);
 
+    //Metodos de accesso y modificacion para cada variable.
     void setCapacidad(int n);
     int getCapacidad();
 
@@ -25,9 +26,12 @@ public:
     void setNumSalon(int n);
     int getNumSalon();
 
+    //Metodo para inscribir mas alumnos.
     void inscribirAlumnos(int cant);
 
 };
+
+//Implementacion de constructores y metodos.
 
 Salon::Salon(){
     capacidad=0;
@@ -71,6 +75,7 @@ int Salon::getNumSalon(){
     return numSalon;
 }
 
+//Se le suma la cantidad dada a los inscritos actualmente.
 void Salon::inscribirAlumnos(int cant){
     inscritos+=cant;
 }
