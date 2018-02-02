@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1517531286 source:c:\users\memos\documents\github\c-small-projects\2nd semester activities\1er parcial\tareas\libros\main.cpp
+	<iostream>
+	<string>
+	"Libro.h"
+
+1517531265 c:\users\memos\documents\github\c-small-projects\2nd semester activities\1er parcial\tareas\libros\libro.h
+

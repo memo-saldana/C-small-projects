@@ -21,8 +21,8 @@ public:
     string getAutor();
     double getPrecio();
 
-    void SubePrecio(double porcentaje);
-    void Muestra();
+    void subePrecio(double porcentaje);
+    void muestra();
 
 };
 
@@ -44,7 +44,7 @@ void Libro::setTitulo(int titu){
 void Libro::setAutor(string aut){
     autor = aut;
 }
-    void setPrecio(double prec){
+void Libro::setPrecio(double prec){
     precio = prec;
 }
 
@@ -58,10 +58,10 @@ double Libro::getPrecio(){
     return precio;
 }
 
-void Libro::SubePrecio(double porcentaje){
+void Libro::subePrecio(double porcentaje){
     precio*=(1.0+porcentaje);
 }
-void Libro::Muestra(){
+void Libro::muestra(){
     cout<<"Titulo: "<<titulo<<endl;
     cout<<"Autor: "<<autor<<endl;
     cout<<"Precio: "<<precio<<endl<<endl;
