@@ -46,7 +46,7 @@ public:
 
 //Metodos funcionales. El muestraDatos() se utiliza para ver los datos de la persona en caso que se requiera, los demas son para inr generando cada seccion del CURP
     void muestraDatos();
-    string creaInicales();
+    string creaIniciales();
     string creaFecha();
     char creaSexo();
     string creaEstado();
@@ -234,7 +234,7 @@ void Persona::muestraDatos(){
 }
 
 //El metodo creaIniciales utiliza los nombres y apellidos para regresar las inicales del curp
-string Persona::creaInicales(){
+string Persona::creaIniciales(){
     string iniciales="";
     int i=1;
     bool vocal=false;
@@ -336,15 +336,15 @@ char Persona::creaSexo(){
     char s;
 //Le si es masculino o femenino y asigna el caracter.
     if(sexo=="masculino"){
-        s="H";
+        s='H';
     }
     else if(sexo=="femenino"){
-        s="M";
+        s='M';
     }
 //Si el sexo no coincide, se notifica al usuario del error y se muestra el sexo recabado y se asigna X al sexo.
     else{
         cout<<"El sexo de "<<pNombre<<" "<<pApellido<<" fue ingresado incorrectamente.( "<<sexo<<" )"<<endl;
-        s="X";
+        s='X';
     }
 
     return s;
