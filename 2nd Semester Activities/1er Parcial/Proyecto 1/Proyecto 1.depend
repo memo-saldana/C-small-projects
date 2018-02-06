@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1517900136 source:c:\users\memos\onedrive\documents\github\c-small-projects\2nd semester activities\1er parcial\proyecto 1\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<ctime>
+	<cstdlib>
+	"Persona.h"
+
+1517898636 c:\users\memos\onedrive\documents\github\c-small-projects\2nd semester activities\1er parcial\proyecto 1\persona.h
+
