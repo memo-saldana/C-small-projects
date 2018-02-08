@@ -70,8 +70,10 @@ Persona::Persona(){
 
 //El constructor con parametro utiliza el string para ir identificando cada atributo que se encuentra dentro del string
 Persona::Persona(string datos){
+
 //Variables para escanear el string
     int i=0,Nombres=1, palabra;
+
 //Se utiliza un do while para contar cuantos nombres y apellidos se tienen.
     do{
         if(datos[i]==' '||datos[i]==','){
@@ -86,7 +88,6 @@ Persona::Persona(string datos){
 //En todos los casos, se busca los espacios, se copia el nombre al lugar correspondiente, y se borra el nombre
 // copiado para facilitar el copiado de los demas datos. En el caso del ultimo nombre, se busca la coma para no
 // copiarla dentro del nombre.
-
         palabra=datos.find(" ");
         pApellido=datos.substr(0,palabra);
         datos.erase(0,palabra+1);
@@ -238,10 +239,11 @@ string Persona::creaIniciales(){
     string iniciales="";
     int i=1;
     bool vocal=false;
-    //Se toma la primera letra del primer apellido.
+
+//Se toma la primera letra del primer apellido.
     iniciales+=pApellido[0];
 
-    //Se busca la primer vocal del primer apellido, que no sea la primer letra. Por esto se empieza desde 1 y no 0.
+//Se busca la primer vocal del primer apellido, que no sea la primer letra. Por esto se empieza desde 1 y no 0.
     do{
         if(pApellido[i]=='a'||pApellido[i]=='e'||pApellido[i]=='i'||pApellido[i]=='o'||pApellido[i]=='u'){
             iniciales+=pApellido[i]-32;
@@ -249,18 +251,20 @@ string Persona::creaIniciales(){
         }
         i++;
     }while(!vocal&&i<pApellido.length());
-    //Si no se encuentra vocal, se pone una X
+
+//Si no se encuentra vocal, se pone una X
     if(!vocal){
         iniciales+="X";
     }
 
-    //Si no tiene segundo apellido, se pone una X, si si se pone solo la primera letra.
+//Si no tiene segundo apellido, se pone una X, si si se pone solo la primera letra.
     if(sApellido==""){
         iniciales+="X";
     }
     else{
         iniciales+=sApellido[0];
     }
+
 //Si su primer nombre es Jose o Maria, se pone la primera letra del segundo nombre, si no es asi se pone la primera
 // letra del prmer nombre.
     if((pNombre!="José"&&pNombre!="María"&&pNombre!="Jose"&&pNombre!="Maria")||sNombre==""){
@@ -276,6 +280,7 @@ string Persona::creaIniciales(){
 //El metodo creaFecha regresa la fecha de nacimiento en digitos, en el orden requerido para el CURP
 string Persona::creaFecha(){
     string fecha;
+
 //Ingresa los ultimos dos digitos del año
     fecha+=ano.substr(2,2);
 
@@ -323,6 +328,7 @@ string Persona::creaFecha(){
         cout<<"El mes de "<<pNombre<<" "<<pApellido<<" fue ingresado incorrectamente. ( "<< mes<<" )"<<endl;
         fecha+="XX";
     }
+
 //Si el dia es de un digito, se agrega un 0, y si no es asi se  agrega solamente el dia.
     if(dia.length()==1){
         fecha+="0";
@@ -334,6 +340,7 @@ string Persona::creaFecha(){
 //El metodo creaSexo regresa el caracter que representa el sexo de la persona.
 char Persona::creaSexo(){
     char s;
+
 //Le si es masculino o femenino y asigna el caracter.
     if(sexo=="masculino"){
         s='H';
@@ -341,6 +348,7 @@ char Persona::creaSexo(){
     else if(sexo=="femenino"){
         s='M';
     }
+
 //Si el sexo no coincide, se notifica al usuario del error y se muestra el sexo recabado y se asigna X al sexo.
     else{
         cout<<"El sexo de "<<pNombre<<" "<<pApellido<<" fue ingresado incorrectamente.( "<<sexo<<" )"<<endl;
@@ -451,6 +459,7 @@ string Persona::creaEstado(){
     else if(lugar=="Zacatecas"){
         estado="ZS";
     }
+
 //En caso de que no coincida se notifica al usuario y se asigna XX
     else{
         cout<<"El lugar de "<<pNombre<<" "<<pApellido<<" fue ingresado incorrectamente. ( "<<lugar<<" )"<<endl;
@@ -521,6 +530,7 @@ string Persona::creaID(){
     string ID="";
     int num;
     if(ano[0]<'2'){
+
 //Para generar los numeros random se utiliza la libreria ctime.
         num= rand()%10;
         ID+=num+48;
@@ -541,4 +551,3 @@ string Persona::creaID(){
 }
 
 #endif // PERSONA_H_INCLUDED
-

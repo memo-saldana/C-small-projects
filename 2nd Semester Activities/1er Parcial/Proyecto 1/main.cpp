@@ -16,6 +16,7 @@ Fecha: 5 de febrero 2018
 #include <ctime>
 #include<cstdlib>
 using namespace std;
+
 //Se incluye el header  de la clase Persona.
 #include "Persona.h"
 
@@ -44,13 +45,14 @@ string crearCURP(string datos, Persona per){
 void leerArch(ifstream& archEnt, ofstream& archSal){
 
     string datos,CURP;
-//se utiliza un while para leer el archivo hasta que se llegue al final.
+
+//Se utiliza un while para leer el archivo hasta que se llegue al final.
     while(!archEnt.eof()){
+
 //Cada linea de texto se utiliza para crear un objeto Persona. Esto identifica
 // cada parte de la informacion necesaria para generar el curp, y luego se
 // se llaman los metodos necesarios para generar el CURP. Esto se repite con
 // cada linea de texto
-
         getline(archEnt,datos);
         Persona per(datos);
         CURP=crearCURP(datos, per);
@@ -79,6 +81,7 @@ int main(){
     srand(time(NULL));
     ofstream archSal;
     ifstream archEnt;
+
 //Se crea el archivo donde se guarden los CURPs
     archSal.open("CURP.txt");
 
