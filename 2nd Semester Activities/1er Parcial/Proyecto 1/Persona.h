@@ -267,7 +267,7 @@ string Persona::creaIniciales(){
 
 //Si su primer nombre es Jose o Maria, se pone la primera letra del segundo nombre, si no es asi se pone la primera
 // letra del prmer nombre.
-    if((pNombre!="José"&&pNombre!="María"&&pNombre!="Jose"&&pNombre!="Maria")||sNombre==""){
+    if((pNombre!="Jose"&&pNombre!="Maria")||sNombre==""){
         iniciales+=pNombre[0];
     }
     else{
@@ -360,103 +360,107 @@ char Persona::creaSexo(){
 
 //El metodo creaEstado utiliza el atributo lugar para regresar las siglas del estado correspondiente
 string Persona::creaEstado(){
-    string estado;
+    string estado,lug="";
 
-//Dependiendo del estado se asignan las siglas.
-    if(lugar=="Aguascalientes"){
+    for(int i=0;i<lugar.length();i++){
+        lug+=toupper(lugar[i]);
+    }
+    cout<<"lugar:"<<lugar<<endl<<"LUG:"<<lug<<endl;
+//Dependiendo del estado se  las siglas.
+    if(lug=="AGUASCALIENTES"){
         estado="AS";
     }
-    else if(lugar=="Baja California"){
+    else if(lug=="BAJA CALIFORNIA"){
         estado="BC";
     }
-    else if(lugar=="Baja California Sur"){
+    else if(lug=="BAJA CALIFORNIA SUR"){
         estado="BS";
     }
-    else if(lugar=="Campeche"){
+    else if(lug=="CAMPECHE"){
         estado="CC";
     }
-    else if(lugar=="Coahuila"){
+    else if(lug=="COAHUILA"){
         estado="CL";
     }
-    else if(lugar=="Colima"){
+    else if(lug=="COLIMA"){
         estado="CM";
     }
-    else if(lugar=="Chiapas"){
+    else if(lug=="CHIAPAS"){
         estado="CS";
     }
-    else if(lugar=="Chihuaha"){
+    else if(lug=="CHIHUAHUA"){
         estado="CH";
     }
-    else if(lugar=="Distrito Federal"||lugar=="D.F."){
+    else if(lug=="DISTRITO FEDERAL"||lugar=="D.F."){
         estado="DF";
     }
-    else if(lugar=="Durango"){
+    else if(lug=="DURANGO"){
         estado="DG";
     }
-    else if(lugar=="Guanajuato"){
+    else if(lug=="GUANAJUATO"){
         estado="GT";
     }
-    else if(lugar=="Guerrero"){
+    else if(lug=="GUERRERO"){
         estado="GR";
     }
-    else if(lugar=="Hidalgo"){
+    else if(lug=="HIDALGO"){
         estado="HG";
     }
-    else if(lugar=="Jalisco"){
+    else if(lug=="JALISCO"){
         estado="JC";
     }
-    else if(lugar=="Mexico"){
+    else if(lug=="MEXICO"){
         estado="MC";
     }
-    else if(lugar=="Michoacan"){
-        estado="MN";
+    else if(lug=="MICHOACAN"){
+        lug="MN";
     }
-    else if(lugar=="Morelos"){
+    else if(lug=="MORELOS"){
         estado="MS";
     }
-    else if(lugar=="Nayarit"){
+    else if(lug=="NAYARIT"){
         estado="NT";
     }
-    else if(lugar=="Nuevo Leon"){
+    else if(lug=="NUEVO LEON"){
         estado="NL";
     }
-    else if(lugar=="Oaxaca"){
+    else if(lug=="OAXACA"){
         estado="OC";
     }
-    else if(lugar=="Puebla"){
+    else if(lug=="PUEBLA"){
         estado="PL";
     }
-    else if(lugar=="Queretaro"){
+    else if(lug=="QUERETARO"){
         estado="QT";
     }
-    else if(lugar=="Quintana Roo"){
+    else if(lug=="QUINTANA ROO"){
         estado="QR";
     }
-    else if(lugar=="San Luis Potosi"){
+    else if(lug=="SAN LUIS POTOSI"){
         estado="SP";
     }
-    else if(lugar=="Sinaloa"){
+    else if(lug=="SINALOA"){
         estado="SL";
     }
-    else if(lugar=="Sonora"){
+    else if(lug=="SONORA"){
         estado="SR";
     }
-    else if(lugar=="Tabasco"){
+    else if(lug=="TABASCCO"){
         estado="TC";
     }
-    else if(lugar=="Tamaulipas"){
+    else if(lug=="TAMAULIPAS"){
         estado="TS";
     }
-    else if(lugar=="Tlaxcala"){
+    else if(lug=="TLAXCALA"){
         estado="TL";
     }
-    else if(lugar=="Veracruz"){
+    else if(lug=="VERACRUZ"){
         estado="VZ";
     }
-    else if(lugar=="Yucatan"){
+    else if(lug=="YUCATAN"){
         estado="YN";
     }
-    else if(lugar=="Zacatecas"){
+    else if(lug=="ZACATECAS"){
         estado="ZS";
     }
 

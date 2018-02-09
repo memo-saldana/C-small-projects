@@ -11,6 +11,9 @@ Fecha: 5 de febrero 2018
 #include <fstream>
 //Se utilizan strings para leer datos y generar el CURP
 #include <string>
+#include <ctype.h>
+#include <string.h>
+
 //Se utilizan ctime y cstdlib para generar los numeros aleatorios encesarios
 // para generar los CURPs
 #include <ctime>
@@ -19,15 +22,6 @@ using namespace std;
 
 //Se incluye el header  de la clase Persona.
 #include "Persona.h"
-
-//La funcion se utiliza para asignarle un nombre al archivo.
-// Esta regresa el nombre como tipo string.
-string obtenerNombre(){
-    string NomArch;
-    cout<<"Teclea el nombre del archivo."<<endl;
-    getline(cin,NomArch);
-    return NomArch;
-}
 
 // La funcion utiliza la clase Persona para regresar un solo string con el curp.
 string crearCURP(string datos, Persona per){
@@ -61,20 +55,6 @@ void leerArch(ifstream& archEnt, ofstream& archSal){
     }
 }
 
-
-//Esta funcion se utiliza para cerrar ambos archivos, el de entrada y salida. Es void
-// ya que  no regresa ningun valor.
-void cerrarArchs(ifstream& archEnt, ofstream& archSal){
-    archEnt.close();
-    archSal.close();
-
-}
-
-void confirmacion(){
-//Confirmacion para el usuario que se generaron los CURPs.
-    cout<<endl<<"CURP generado(s)."<<endl;
-}
-
 int main(){
 
 //Variables necesarias e inicalizacion del seed para los numeros aleatorios.
@@ -88,13 +68,18 @@ int main(){
 //Se pide el nombre del archivo con datos al usuario y se abre el archivo
 // con ese nombre
     string NomArch;
-    NomArch=obtenerNombre();
+    cout<<"Teclea el nombre del archivo."<<endl;
+    getline(cin,NomArch);
+
     archEnt.open(NomArch.c_str());
 
     leerArch(archEnt,archSal);
 
-    confirmacion();
-    cerrarArchs(archEnt,archSal);
+
+    cout<<endl<<"CURP generado(s)."<<endl;
+
+    archEnt.close();
+    archSal.close();
 
     return 0;
 }
