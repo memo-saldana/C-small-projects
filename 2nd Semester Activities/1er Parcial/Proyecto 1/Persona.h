@@ -463,7 +463,7 @@ string Persona::creaEstado(){
 //En caso de que no coincida se notifica al usuario y se asigna XX
     else{
         cout<<"El lugar de "<<pNombre<<" "<<pApellido<<" fue ingresado incorrectamente. ( "<<lugar<<" )"<<endl;
-        estado="XX";
+        estado="NE";
     }
 
     return estado;
