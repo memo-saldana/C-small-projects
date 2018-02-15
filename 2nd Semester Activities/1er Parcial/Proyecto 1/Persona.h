@@ -365,8 +365,8 @@ string Persona::creaEstado(){
     for(int i=0;i<lugar.length();i++){
         lug+=toupper(lugar[i]);
     }
-    cout<<"lugar:"<<lugar<<endl<<"LUG:"<<lug<<endl;
-//Dependiendo del estado se  las siglas.
+
+    //Dependiendo del estado se  las siglas.
     if(lug=="AGUASCALIENTES"){
         estado="AS";
     }
