@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1519095498 source:c:\users\memos\documents\github\c-small-projects\2nd semester activities\2do parcial\tareas\tarea 5\main.cpp
+	<iostream>
+	<string>
+	"Computadora.h"
+	"Salon.h"
+
+1519093465 c:\users\memos\documents\github\c-small-projects\2nd semester activities\2do parcial\tareas\tarea 5\computadora.h
+
+1519095409 c:\users\memos\documents\github\c-small-projects\2nd semester activities\2do parcial\tareas\tarea 5\salon.h
+

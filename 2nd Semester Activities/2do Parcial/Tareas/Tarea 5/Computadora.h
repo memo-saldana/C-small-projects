@@ -21,7 +21,7 @@ public:
 
     //Metodos de Modificación
     void setMarca(string marca);
-    void setSistOperativo(string sistOperativo);
+    void setSistOperativo(string sistOperativo); 
     void setRam(int ram);
 };
 

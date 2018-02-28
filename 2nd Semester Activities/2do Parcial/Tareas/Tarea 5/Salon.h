@@ -26,7 +26,7 @@ public:
 //Desarrollo de constructores
 Salon::Salon(){
     idSalon=0;
-    Computadora compuSalon;
+    Computadora();
 }
 
 Salon::Salon(int idSalon, Computadora compuSalon){
@@ -50,7 +50,7 @@ void Salon::setIdSalon(int idSalon){
 
 void Salon::setCompuSalon(Computadora compuSalon){
     this->compuSalon=compuSalon;
-
+}
 
 
 #endif // SALON_H_INCLUDED

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1519334432 source:c:\users\memos\documents\github\c-small-projects\2nd semester activities\2do parcial\ejercicios\cadena ej 2\main.cpp
+	<iostream>
+	<string.h>
+
