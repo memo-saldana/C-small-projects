@@ -144,5 +144,11 @@ Tiempo operator -(Tiempo a, int segundo){
 		res.minuto--;
 		res.segundo+=60;
 	}
-	while(minuto<0)
+	while(minuto<0){
+		res.hora--;
+		res.minuto+=60;
+	}
+
+
+	return res;
 }
