@@ -1,30 +1,26 @@
 #include <iostream>
-#include <string>
 #include <fstream>
 using namespace std;
-#include "Fecha.h"
-#include "Pacientes.h"
-#include "Doctor.h"
 #include "Cirugias.h"
 
-int cir,pacs=0,docs=0;
+int pacs = 0, docs = 0, numCir;
 
 /*
  * La funcion muestra los datos generales de una cirugia
  * Argumentos: objeto cirugia
  * Retornos: ninguno.
  */
-void muestraCirugia(Cirugias cirugia){
-    cout << endl;
-    cout << "-------------------------------" << endl;
-    cout << "Id Doctor: " << cirugia.getIdDoctor() << endl;
-    cout << "Id Cirugia " << cirugia.getIdCirugia() << endl;
-    cout << "Duracion " << cirugia.getDuracion() << endl;
-    cout << "Descripcion " << cirugia.getDescripcion() << endl;
-    cout << "Fecha ";
-    cirugia.getFechaCx().muestra();
-    cout << endl;
-    cout << "-------------------------------" << endl;
+void muestraCirugias(Cirugias cirugia){
+	cout << endl;
+    cout<<"----------------------------------------------"<<endl;
+	cout << "ID doctor: " << cirugia.getIdDoctor() << endl;
+	cout << "ID cirugia: " << cirugia.getIdCirugia() << endl;
+	cout << "Duracion: " << cirugia.getDuracion() << endl;
+	cout <<	"Descripcion: " << cirugia.getDescripcion() << endl;
+	cout << "Fecha: ";
+	cirugia.getFechaCx().muestra();
+	cout << endl;
+	cout<<"----------------------------------------------"<<endl;
 }
 
 /*
@@ -42,7 +38,7 @@ void altaPaciente(Cirugias arrCir[], Pacientes arrPacs[]){
   cin >> idPaciente;
   
   // En el primer loop verifica que exista el id de la cirugia.
-  for(int i = 0; i < cir; i++){
+  for(int i = 0; i < numCir; i++){
     if (idCirugia == arrCir[i].getIdCirugia()){
       for(int j = 0; j < pacs; j++){
         // Si sí existe el segundo loop verifica que que exista el id del paciente.
@@ -76,11 +72,11 @@ void consultaPorFecha(Cirugias arrCir[]){
   if(dia>0 && mes >0 &&  mes < 13 && ((mes == 2 && dia < 28) || (mes == 4 || mes == 6 || mes == 9 || mes == 11 && dia <31) || (dia < 32))){
     
     //Si la fecha dada es igual a la fecha de la cirugia, se muestran los datos geneerales
-    for(int i=0;i<cir;i++){
+    for(int i=0;i<numCir;i++){
 
       if(dia== arrCir[i].getFechaCx().getDia() && mes == arrCir[i].getFechaCx().getMes() && anio == arrCir[i].getFechaCx().getAnio()){
       
-        muestraCirugia(arrCir[i]);
+        muestraCirugias(arrCir[i]);
       
       }
     }  
@@ -103,11 +99,11 @@ void consultaCirugia(Cirugias arrCir[], Pacientes arrPac[]){
   cin >> idCirugia;
   
   // El primer loop corrobora que exista el id de cirugia provist.
-  for (int i = 0; i < cir; i++){
+  for (int i = 0; i < numCir; i++){
     
     // En caso de existir muestra los datos generales de la cirugia.
     if(idCirugia == arrCir[i].getIdCirugia()){
-      muestraCirugia(arrCir[i]);
+      muestraCirugias(arrCir[i]);
       flagC = true;
       
       // Posteriormente un par de arrays comparan el id del paciente que se encuentra en la cirugia con el array
@@ -124,17 +120,15 @@ void consultaCirugia(Cirugias arrCir[], Pacientes arrPac[]){
       }
     }
   }
-  
-  // Notifica al usuario de la falta de pacientes o cirugias.
+    // Notifica al usuario de la falta de pacientes o cirugias.
   if(!flagC){
     cout << "La cirugia no existe.\n";
   }
   if(!flagP && flagC){
     cout << "La cirugia no tiene pacientes.\n";
   }
-  
 }
-     
+
 /*
  * La funcion verifica el id del doctor, despues despliega los datos de las cirugias del doctor buscado
  * En caso de que el doctor no exista o el doctor exista pero no tenga cirugias, notifica al usuario.
@@ -156,17 +150,15 @@ void consultaPorDoctor(Cirugias arrCir[], Doctor arrDoc[]){
       existe = true;
       
       // Busca las cirugias del doctor y las presenta en la pantalla
-      for(int i=0;i<cir;i++){
+      for(int i=0;i<numCir;i++){
         if(idDoctor == arrCir[i].getIdDoctor()){
           
           hay = true;
-          muestraCirugia(arrCir[i]);
+          muestraCirugias(arrCir[i]);
         }
       } 
-      
     }
   }
-  
   
   // Notifica si el doctor existe o no y si el mismo tiene cirugias programadas
   if(!existe){
@@ -175,10 +167,8 @@ void consultaPorDoctor(Cirugias arrCir[], Doctor arrDoc[]){
   if(existe && !hay){
     cout<< "No hay cirugias con este doctor.";
   }
-  
-}     
-     
-     
+} 
+
 void consultaPorPaciente(Cirugias arrCir[], Pacientes arrPac[]){
   int idPaciente;
   bool existe = false, hay = true;
@@ -189,11 +179,11 @@ void consultaPorPaciente(Cirugias arrCir[], Pacientes arrPac[]){
   for(int i = 0; i<pacs; i ++){
     if(idPaciente == arrPac[i].getIdPx()){
       existe = true;
-      for(int j=0; j<cir;j++){
+      for(int j=0; j<numCir;j++){
         for(int k = 0; k<arrCir[j].getCantPx();k++){
           if(idPaciente = arrCir[j].getListaPx(k)){
             hay = true;
-            muestraCirugia(arrCir[i]);
+            muestraCirugias(arrCir[i]);
           }
         }   
       }
@@ -207,135 +197,129 @@ void consultaPorPaciente(Cirugias arrCir[], Pacientes arrPac[]){
   if(existe && !hay){
     cout<< "El paciente no tiene cirugas."<<endl;
   }
-}     
+}
 
 int main(){
-  Doctor arrDoc[5];
-  Pacientes arrPac[15];
-  Cirugias arrCir[10], temp;
-  int num, esp,dia,mes,anio;
-  string str, nombre, apellido, genero;
-  char option;
+	Doctor doctores[5];
+	Pacientes pacientes[15];
+	Cirugias cirugias[10];
+	string nombre, apellido, genero, especialidad;
+	int id, edad, dia, mes, anio;
+	ifstream archEntDoct, archEntPas;
+	Fecha fecha;
+	char option;
+	
+	archEntDoct.open("Doctores.txt");
+	while(archEntDoct >> id >> nombre >> apellido >> especialidad && docs < 5){
+		nombre += " " + apellido;
 
-  ifstream archDoc,archPac;
-  archDoc.open("Doctores.txt");
-  archPac.open("Pacientes.txt");
+		doctores[docs].setIdDoctor(id);
+		doctores[docs].setNombre(nombre);
+		doctores[docs].setEspecialidad(especialidad);
 
-  while(archDoc>>num && docs<5){
+		docs++;
+	}
+	archEntDoct.close();
 
-    arrDoc[docs].setIdDoctor(num);
 
-    getline(archDoc,str);
-    for(esp = str.length()-1; str[esp] != ' '; esp--){
-    	
-    }
+	archEntPas.open("Pacientes.txt");
+	while(archEntPas >> id >> nombre >> apellido >> genero >> edad && pacs < 15){
+		nombre += " " + apellido;
 
-    arrDoc[docs].setNombre(str.substr(1,esp-1));
-    arrDoc[docs].setEspecialidad(str.substr(esp+1));
-    docs++;
-  }
-  archDoc.close();
-  while(archPac>>num && pacs < 10 ){
-    arrPac[pacs].setIdPx(num);
+		pacientes[pacs].setIdPx(id);
+		pacientes[pacs].setNombre(nombre);
+		pacientes[pacs].setGenero(genero);
+		pacientes[pacs].setEdad(edad);
 
-    archPac>>nombre>>apellido>>genero>>num;
-    nombre+=apellido;
+		pacs++;
+	}
+	archEntPas.close();
 
-    arrPac[pacs].setNombre(nombre);
-    arrPac[pacs].setGenero(genero);
-    arrPac[pacs].setEdad(num);
+	do{
+		cout << "Teclee el numero de cirugias programadas.\n";
+		cin >> numCir;
+	}while(numCir < 0 || numCir > 15);
 
-    pacs++;  
-  }
-  archPac.close();             
-                           
-  cout<<"Teclea el numero de cirugias"<<endl;
-  cin>>cir;
+	for (int j = 0; j < numCir; j++){
+		cout << "Teclee el id de la " << j + 1 << " cirugia.\n";
+		cin >> id;
+		cirugias[j].setIdCirugia(id);
 
-  for(int j=0; j<cir; j++ ){
+		cout << "Teclee el id del doctor que practicara la cirugia.\n";
+		cin >> id;
+		cirugias[j].setIdDoctor(id);
+
+		cout << "Teclee la duracion de la cirugia.\n";
+		cin >> id;
+		cirugias[j].setDuracion(id);
+
+		cout << "Teclee el dia seguido del mes y por ultimo el año (separados con un espacio)\n";
+		cout << "en el que se practicara la cirugia.\n";
+		cin >> dia >> mes >> anio;
+		fecha.setDia(dia);
+		fecha.setMes(mes);
+		fecha.setAnio(anio);
+		cirugias[j].setFechaCx(fecha);
+
+		cout << "Teclee una breve descripcion de la cirugia a practicar.\n";
+		cin.ignore();
+		getline(cin, nombre);
+		cirugias[j].setDescripcion(nombre);
+	}
+
+	 // Despliega menú para que el usuario elija una funcion
+	do{
+	    cout << "Elige una de las siguientes opciones: " << endl;
+	    cout << "\t a. Consulta todas las cirugias a realizar.\n";
+	    cout << "\t b. Dar de alta un paciente para una cirugia.\n";
+	    cout << "\t c. Consulta de cirugia por fecha.\n";
+	    cout << "\t d. Consulta por id de la cirugia.\n";
+	    cout << "\t e. Consulta de cirugias de un(a) doctor(a).\n";
+	    cout << "\t f. Consulta la lista de cirugias que se la han practicado a un paciente.\n";
+	    cout << "\t g. Salir.\n";
+	    cout << "Opcion: ";
+	    cin >> option;
     
-    
-    cout<<"Teclea el ID de la cirugia."<<endl;
-    cin>>num;
-    arrCir[cir].setIdCirugia(num);
-    
-  
-    cout<<"Teclea el ID del doctor."<<endl;
-    cin>>num;
-    arrCir[cir].setIdDoctor(num);
-    
-    cout<<"Teclea la duracion."<<endl;
-    cin>>num;
-    arrCir[cir].setDuracion(num);
-    
-    cout<<"Teclea la descripcion."<<endl;
-    cin.ignore();
-    getline(cin,str);
-    arrCir[cir].setDescripcion(str);
-    
-    cout<<"Teclea el dia, mes y año de la cirugia, en ese orden."<<endl;
-    cin>>dia>>mes>>anio;
-    
-  }
-  
-  // Despliega menú para que el usuario elija una funcion
-  do{
-    cout << "Elige una de las siguientes opciones: " << endl;
-    cout << "\t a. Consulta todas las cirugias a realizar.\n";
-    cout << "\t b. Dar de alta un paciente para una cirugia.\n";
-    cout << "\t c. Consulta de cirugia por fecha.\n";
-    cout << "\t d. Consulta por id de la cirugia.\n";
-    cout << "\t e. Consulta de cirugias de un(a) doctor(a).\n";
-    cout << "\t f. Consulta la lista de cirugias que se la han practicado a un paciente.\n";
-    cout << "\t g. Salir.\n";
-    cout << "Opcion: ";
-    cin >> option;
-    
-    // Dependiendo de la opción se hace llamado a la funcion necesaria para cada opcion
-    switch(toupper(option)){
-      case 'A':
-      	
-        for (int k; k < cir; k++){
-        	cout<< "Prueba";
-        	temp =arrCir[k];
-          muestraCirugia(temp);
-        }
-        break;
-      
-      case 'B':
-        altaPaciente(arrCir, arrPac);
-        break;
-        
-      case 'C':
-        consultaPorFecha(arrCir);
-        break;
-        
-      case 'D':
-        consultaCirugia(arrCir, arrPac);
-        break;
-        
-      case 'E':
-        consultaPorDoctor(arrCir, arrDoc);
-        break;
-        
-      case 'F':
-        consultaPorPaciente(arrCir,arrPac);
-        break;
-        
-      case 'G':
-        return 0;
-        
-      
-      default:
-          cout<<"Opcion erronea, vuelva a intentar."<<endl;
-          
-    }
-  }while (toupper(option) != 'g');
-    
-  
+	    // Dependiendo de la opción se hace llamado a la funcion necesaria para cada opcion
+	    switch(toupper(option)){
+			case 'A':
+		      	
+			    for (int k = 0; k < numCir; k++){
+			        muestraCirugias(cirugias[k]);
+			    }
+			    break;
+		      	
+		      	
+		    case 'B':
+			    altaPaciente(cirugias, pacientes);
+			    break;
+		        
+		        
+		    case 'C':
+			    consultaPorFecha(cirugias);
+			    break;
+		        
+		    case 'D':
+		        consultaCirugia(cirugias, pacientes);
+		        break;
+		        
+		    case 'E':
+		        consultaPorDoctor(cirugias, doctores);
+		        break;
+		        
+		    case 'F':
+		        consultaPorPaciente(cirugias, pacientes);
+		        break;
+		 
+		    case 'G':
+		        return 0;
+		        
+		    default:
+		          cout<<"Opcion erronea, vuelva a intentar."<<endl;
+		          
+		}
 
-
-
+	}while (toupper(option) != 'G');
+    
   return 0;
 }
-                           

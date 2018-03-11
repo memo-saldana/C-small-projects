@@ -1,5 +1,8 @@
 #ifndef Cirugias_h
 #define Cirugias_h
+#include "Fecha.h"
+#include "Doctor.h"
+#include "Pacientes.h"
 
 class Cirugias{
 private:
@@ -15,7 +18,6 @@ public:
 	void setIdDoctor(int idDoctor);
 	void setIdCirugia(int idCirugia);
 	void setDuracion(int duracion);
-	void setCantPx(int cantPx);
 	void setDescripcion(string descripcion);
 	void setFechaCx(Fecha fechaCx);
 	int getIdDoctor();
