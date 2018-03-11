@@ -69,7 +69,7 @@ void consultaPorFecha(Cirugias arrCir[]){
   cin>>dia>>mes>>anio;
   
   //Se valida que la fecha sea correcta
-  if(dia>0 && mes >0 &&  mes < 13 && ((mes == 2 && dia < 28) || (mes == 4 || mes == 6 || mes == 9 || mes == 11 && dia <31) || (dia < 32))){
+  if(dia>0 && mes >0 &&  mes < 13 && ((mes == 2 && dia < 28) || ((mes == 4 || mes == 6 || mes == 9 || mes == 11 ) && (dia <31)) || (dia < 32))){
     
     //Si la fecha dada es igual a la fecha de la cirugia, se muestran los datos geneerales
     for(int i=0;i<numCir;i++){
@@ -181,7 +181,7 @@ void consultaPorPaciente(Cirugias arrCir[], Pacientes arrPac[]){
       existe = true;
       for(int j=0; j<numCir;j++){
         for(int k = 0; k<arrCir[j].getCantPx();k++){
-          if(idPaciente = arrCir[j].getListaPx(k)){
+          if(idPaciente == arrCir[j].getListaPx(k)){
             hay = true;
             muestraCirugias(arrCir[i]);
           }
