@@ -69,12 +69,12 @@ void Pacientes::setEdad(int edad){
 // Metodos muestra para enseñar datos en pantalla.
 void Pacientes::muestra(){
 	cout<<endl;
-	cout<"----------------------------------------------"<<endl;
+	cout<<"----------------------------------------------"<<endl;
 	cout<<"ID: "<<idPx<<endl;
 	cout<<"Nombre: "<<nombre<<endl;
 	cout<<"Genero: "<<genero<<endl;
 	cout<<"Edad: "<<edad<<endl;
-	cout<"----------------------------------------------"<<endl;
+	cout<<"----------------------------------------------"<<endl;
 
 }
 

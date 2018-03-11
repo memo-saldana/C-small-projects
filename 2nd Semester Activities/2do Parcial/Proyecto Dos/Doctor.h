@@ -1,15 +1,15 @@
-#ifndef Doctores_h
-#define Doctores_h
+#ifndef Doctor_h
+#define Doctor_h
 
-class Doctores{
+class Doctor{
 private:
 	int idDoctor;
 	string nombre,especialidad;
 
 public:
 	// Constructor default y con parametros
-	Doctores();
-	Doctores(int idDoctor, string nombre, string especialidad);
+	Doctor();
+	Doctor(int idDoctor, string nombre, string especialidad);
 
 	// Metodos de acceso y modificacion
 	int getIdDoctor();
@@ -24,7 +24,7 @@ public:
 };
 
 // Constructor default y por parametos
-Doctores::Doctores(){
+Doctor::Doctor(){
 
 	idDoctor = 0;
 	nombre = "";
@@ -32,40 +32,38 @@ Doctores::Doctores(){
 
 
 }
-Doctores::Doctores(int idDoctor, string nombre, string especialidad){
+Doctor::Doctor(int idDoctor, string nombre, string especialidad){
 	this->idDoctor = idDoctor;
 	this->nombre = nombre;
 	this->especialidad = especialidad;
 }
 
 // Metodos de acceso y modificacion.
-int Doctores::getIdDoctor(){
+int Doctor::getIdDoctor(){
 	return idDoctor;
 }
-string Doctores::getNombre(){
+string Doctor::getNombre(){
 	return nombre;
 }
-void Doctores::setIdDoctor(int idDoctor){
+void Doctor::setIdDoctor(int idDoctor){
 	this->idDoctor = idDoctor;
 }
-void Doctores::setNombre(string nombre){
+void Doctor::setNombre(string nombre){
 	this->nombre = nombre;
 }
-void Doctores::setEspecialidad(string especialidad){
+void Doctor::setEspecialidad(string especialidad){
 	this->especialidad = especialidad;
 }
-void Doctores::setEdad(int edad){
-	this->edad = edad;
-}
+
 
 // Metodo para desplegar la informacion del objeto en pantalla.
-void Doctores::muestra(){
+void Doctor::muestra(){
 	cout<<endl;
-	cout<"----------------------------------------------"<<endl;
+	cout<<"----------------------------------------------"<<endl;
 	cout<<"ID: "<<idDoctor<<endl;
 	cout<<"Nombre: "<<nombre<<endl;
 	cout<<"Especialidad: "<<especialidad<<endl;
-	cout<"----------------------------------------------"<<endl;
+	cout<<"----------------------------------------------"<<endl;
 
 }
 

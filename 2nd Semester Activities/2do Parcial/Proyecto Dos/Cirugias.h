@@ -1,7 +1,7 @@
 #ifndef Cirugias_h
 #define Cirugias_h
 
-class Cirguias{
+class Cirugias{
 private:
 	int idDoctor, idCirugia, duracion, cantPx, listaPx[10];
 	string descripcion;
@@ -9,7 +9,7 @@ private:
 
 public:
 	// Constructor default
-	Cirguias();
+	Cirugias();
 
 	// Metodos de acceso y modificacion
 	void setIdDoctor(int idDoctor);
@@ -17,21 +17,21 @@ public:
 	void setDuracion(int duracion);
 	void setCantPx(int cantPx);
 	void setDescripcion(string descripcion);
-	void setFecha(Fecha fechaCx);
+	void setFechaCx(Fecha fechaCx);
 	int getIdDoctor();
 	int getIdCirugia();
 	int getDuracion();
 	int getCantPx();
 	int getListaPx(int index);
 	string getDescripcion();
-	Fecha getFechaPx();
+	Fecha getFechaCx();
 
 	// Metodos funcionales
 	bool agregarPaciente(int id);
-}
+};
 
 // Constructor default con valores a 0;
-Cirguias::Cirguias(){
+Cirugias::Cirugias(){
 	idDoctor = 0;
 	idCirugia = 0;
 	duracion = 0;
@@ -56,16 +56,16 @@ void Cirugias::setDuracion(int duracion){
 	this->duracion = duracion;
 }
 
-void Cirguias::setDescripcion(string descripcion){
+void Cirugias::setDescripcion(string descripcion){
 	this->descripcion = descripcion;
 }
 
-void Cirugias::setFecha(Fecha fechaCx){
+void Cirugias::setFechaCx(Fecha fechaCx){
 	this->fechaCx = fechaCx;
 }
 
 // Metodos acceso para los parametros.
-int Cirugias::getIdDoctor(){
+int Cirugias::getIdDoctor()	{
 	return idDoctor;
 }
 
@@ -89,7 +89,7 @@ string Cirugias::getDescripcion(){
 	return descripcion;
 }
 
-Fecha Cirugias::getFechaPx(){
+Fecha Cirugias::getFechaCx(){
 	return fechaCx;
 }
 
@@ -106,14 +106,14 @@ bool Cirugias::agregarPaciente(int id){
 
 	// Si no se repite y sí hay espacio, se agrega.
 	if(cantPx < 10 && flag){
-		listaPx[cantPx] == id;
+		listaPx[cantPx] = id;
 		cantPx ++;
 		cout << "El paciente fue agregado.\n";
 		return true;
 	}
 	// Si hay espacio pero se repite, no se agrega.
 	else if(!flag){
-		cout << "El paciente ya exite.\n"
+		cout << "El paciente ya exite.\n";
 		return false;
 	}
 	// Si no hay espacio no se agrega se repita o no.
