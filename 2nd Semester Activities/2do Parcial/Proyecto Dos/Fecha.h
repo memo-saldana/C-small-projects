@@ -1,34 +1,30 @@
-//
-//  Fecha.h
-//  Clase Fecha
-//
-//  Created by María Esperanza Garza Leal on 2/15/18.
-//  Copyright © 2018 María Esperanza Garza Leal. All rights reserved.
-//
-
 #ifndef Fecha_h
 #define Fecha_h
 
 class Fecha{
 private:
-    int dia;
-    int mes;
-    int anio;
+    int dia, mes, anio;
 
 public:
+    // Constructores default y con parametros.
     Fecha();
     Fecha(int dia, int mes, int anio);
+
+    // Metodos de acceso y modificacion
     void setDia(int dia);
     void setMes(int mes);
     void setAnio(int anio);
     int getDia();
     int getMes();
     int getAnio();
+
+    // Metodos funcionales para mes, comprobación de si es viciesto y metodo muestra.
     string nombreMes();
     bool esBisiesto();
     void muestra();
 };
 
+// Constructores.
 Fecha::Fecha(){
     dia=0;
     mes=0;
@@ -40,6 +36,7 @@ Fecha::Fecha(int dia, int mes, int anio){
     this->anio=anio;
 }
 
+// Metodos de acceso y modificacion.
 void Fecha::setDia(int dia){
     this->dia=dia;
 }
@@ -59,6 +56,8 @@ int Fecha::getAnio(){
     return anio;
 }
 
+// Metodos funcionales para representar el mes, verificar si el año es biciesto
+// y mostrar datos en pantalla.
 string Fecha::nombreMes(){
     switch(mes)
     {
