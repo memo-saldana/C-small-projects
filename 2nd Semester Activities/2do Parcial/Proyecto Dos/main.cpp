@@ -30,30 +30,58 @@ void muestraCirugias(Cirugias cirugia){
  * Retornos: ninguno.
  */
 void altaPaciente(Cirugias arrCir[], Pacientes arrPacs[]){
-  // Declaracion de variables para los ids
-  int idPaciente, idCirugia;
+	// Declaracion de variables para los ids
+  	int idPaciente, idCirugia;
+  	bool existeCir = false, existePac = false;
+
+	cout << "Favor de ingresar el ID la cirugia\n";
+  	cin >> idCirugia;
+  	cout << "Favor de ingresar el ID del paciente\n";
+  	cin >> idPaciente;
+
+	// En el primer loop verifica que exista el id de la cirugia.
+  	for(int i = 0; i < numCir; i++){
+
+    	if (idCirugia == arrCir[i].getIdCirugia()){
+
+    		existeCir = true;
+      		for(int j = 0; j < pacs; j++){
+
+        		// Si sí existe el segundo loop verifica que que exista el id del paciente.
+        		if (idPaciente == arrPacs[j].getIdPx()){
+
+        			existePac = true;
+          			// Una vez verificadas ambas partes utiliza el método para agregar pacientes que verifica
+          			// que sea posible agregar al paciente y notifica que se hizo o no.
+          			if (arrCir[i].agregarPaciente(idPaciente)){
+          			cout << "\aExito !\n";
+          			}
+          			else{
+            			cout << "Error.\n";
+					}        		
+        		}
+      		}	
+    	}
+  	}
+
+  	//Si no existe cirugia, se muestra el mensaje de que no existe
+  	if(!existeCir){
+  		cout<<"La cirugia dada no existe."<<endl;
+
+  		//Como no existieron cirugias, no se revisaron los pacientes, por lo que se debe revisar que el
+  		// paciente exista dentro del arreglo, en caso de que si existe la cirugia si se escanea la lista 
+  		// de pacientes.
+  		for(int i=0; i<pacs; i++){
+  			if(idPaciente == arrPacs[i].getIdPx()){
+  			existePac = true;
+  			}
+  		}
+  	}
   
-  cout << "Favor de ingresar el ID la cirugia\n";
-  cin >> idCirugia;
-  cout << "Favor de ingresar el ID del paciente\n";
-  cin >> idPaciente;
-  
-  // En el primer loop verifica que exista el id de la cirugia.
-  for(int i = 0; i < numCir; i++){
-    if (idCirugia == arrCir[i].getIdCirugia()){
-      for(int j = 0; j < pacs; j++){
-        // Si sí existe el segundo loop verifica que que exista el id del paciente.
-        if (idPaciente == arrPacs[j].getIdPx()){
-          // Una vez verificadas ambas partes utiliza el método para agregar pacientes que verifica
-          // que sea posible agregar al paciente y notifica que se hizo o no.
-          if (arrCir[i].agregarPaciente(idPaciente))
-            cout << "\aExito !\n";
-          else
-            cout << "Error.\n";
-        }
-      }
-    }
-  }
+	//Si no existe el paciente, se muestra el mensaje de que no existe
+  	if(!existePac){
+  		cout<<"El paciente dado no existe."<<endl;
+	}
 }
 
 /*
@@ -66,6 +94,7 @@ void consultaPorFecha(Cirugias arrCir[]){
   
   //Se pude el mes dia y año
   int dia,mes,anio;
+  bool existe;
   cout<<"Teclea el dia, mes y año, en ese orden";
   cin>>dia>>mes>>anio;
   
@@ -76,12 +105,22 @@ void consultaPorFecha(Cirugias arrCir[]){
     for(int i=0;i<numCir;i++){
 
       if(dia== arrCir[i].getFechaCx().getDia() && mes == arrCir[i].getFechaCx().getMes() && anio == arrCir[i].getFechaCx().getAnio()){
-      
+
+      	existe = true;
         muestraCirugias(arrCir[i]);
       
       }
     }  
-  }  
+  }
+  else{
+  	existe = true;
+  	cout<<"Fecha no es valida."<<endl;
+  }
+
+  if(!existe){
+
+  	cout<<"No existen cirugias con esa fecha."<< endl;
+  }
 }
 
 /*
@@ -217,7 +256,7 @@ int main(){
 	cin>>nombre;
 	
 	//Se leen los doctores del archivo indicado
-	archEntDoct.open(nombre);
+	archEntDoct.open(nombre.c_str());
 	while(archEntDoct >> id >> nombre >> apellido >> especialidad && docs < 5){
 		nombre += " " + apellido;
 
@@ -234,7 +273,7 @@ int main(){
 	cin>>nombre;
 
 	//Se leen los pacientes del archivo con el nombre indicado
-	archEntPas.open(nombre);
+	archEntPas.open(nombre.c_str());
 	while(archEntPas >> id >> nombre >> apellido >> genero >> edad && pacs < 15){
 		nombre += " " + apellido;
 
