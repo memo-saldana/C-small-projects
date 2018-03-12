@@ -251,6 +251,7 @@ int main(){
 	ifstream archEntDoct, archEntPas;
 	Fecha fecha;
 	char option;
+	bool existeDoc;
 
 	cout<<"Teclea el nombre del archivo que contiene a los doctores."<<endl;
 	cin>>nombre;
@@ -294,21 +295,40 @@ int main(){
 
 	//Se ingresan los datos de cada uno, excepto los pacientes
 	for (int j = 0; j < numCir; j++){
+		existeDoc = false;
 		cout << "Teclee el id de la " << j + 1 << " cirugia.\n";
 		cin >> id;
 		cirugias[j].setIdCirugia(id);
 
-		cout << "Teclee el id del doctor que practicara la cirugia.\n";
-		cin >> id;
+		do{
+			cout << "Teclee el id del doctor que practicara la cirugia.\n";
+			cin >> id;
+			for(int i=0; i<docs; i++){
+				if(id == doctores[i].getIdDoctor()){
+					existeDoc = true;
+				}
+			}
+
+			if(!existeDoc){
+				cout<<"No existe doctor con ese id."<<endl;
+			}
+		}while(!existeDoc);
+		
 		cirugias[j].setIdDoctor(id);
 
 		cout << "Teclee la duracion de la cirugia.\n";
 		cin >> id;
 		cirugias[j].setDuracion(id);
 
-		cout << "Teclee el dia seguido del mes y por ultimo el año (separados con un espacio)\n";
-		cout << "en el que se practicara la cirugia.\n";
-		cin >> dia >> mes >> anio;
+		do{
+			cout << "Teclee el dia seguido del mes y por ultimo el año (separados con un espacio)\n";
+			cout << "en el que se practicara la cirugia.\n";
+			cin >> dia >> mes >> anio;
+			if(!(dia>0 && mes >0 &&  mes < 13 && ((mes == 2 && dia < 28) || ((mes == 4 || mes == 6 || mes == 9 || mes == 11 ) && (dia <31)) || (dia < 32)))){
+				cout<<"Fecha invalida."<<endl;
+			}
+
+		}while(!(dia>0 && mes >0 &&  mes < 13 && ((mes == 2 && dia < 28) || ((mes == 4 || mes == 6 || mes == 9 || mes == 11 ) && (dia <31)) || (dia < 32))));
 		fecha.setDia(dia);
 		fecha.setMes(mes);
 		fecha.setAnio(anio);
