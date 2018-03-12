@@ -184,7 +184,7 @@ void consultaPorPaciente(Cirugias arrCir[], Pacientes arrPac[]){
         for(int k = 0; k<arrCir[j].getCantPx();k++){
           if(idPaciente == arrCir[j].getListaPx(k)){
             hay = true;
-            muestraCirugias(arrCir[i]);
+            muestraCirugias(arrCir[j]);
           }
         }   
       }
