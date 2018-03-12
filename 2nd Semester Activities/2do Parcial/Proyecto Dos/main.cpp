@@ -212,9 +212,12 @@ int main(){
 	ifstream archEntDoct, archEntPas;
 	Fecha fecha;
 	char option;
+
+	cout<<"Teclea el nombre del archivo que contiene a los doctores."<<endl;
+	cin>>nombre;
 	
-	//Se leen los doctores del archivo Doctores.txt
-	archEntDoct.open("Doctores.txt");
+	//Se leen los doctores del archivo indicado
+	archEntDoct.open(nombre);
 	while(archEntDoct >> id >> nombre >> apellido >> especialidad && docs < 5){
 		nombre += " " + apellido;
 
@@ -226,8 +229,12 @@ int main(){
 	}
 	archEntDoct.close();
 
-	//Se leen los pacientes del archivo Pacientes.txt
-	archEntPas.open("Pacientes.txt");
+
+	cout<<"Teclea el nombre del archivo que contiene a los pacientes."<<endl;
+	cin>>nombre;
+
+	//Se leen los pacientes del archivo con el nombre indicado
+	archEntPas.open(nombre);
 	while(archEntPas >> id >> nombre >> apellido >> genero >> edad && pacs < 15){
 		nombre += " " + apellido;
 
