@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 using namespace std;
 #include "Cirugias.h"
 
@@ -46,7 +47,7 @@ void altaPaciente(Cirugias arrCir[], Pacientes arrPacs[]){
           // Una vez verificadas ambas partes utiliza el método para agregar pacientes que verifica
           // que sea posible agregar al paciente y notifica que se hizo o no.
           if (arrCir[i].agregarPaciente(idPaciente))
-            cout << "Exito !\n";
+            cout << "\aExito !\n";
           else
             cout << "Error.\n";
         }
@@ -267,6 +268,7 @@ int main(){
 		cirugias[j].setDescripcion(nombre);
 	}
 
+	system("cls");
 	 // Despliega menú para que el usuario elija una funcion
 	do{
 	    cout << "Elige una de las siguientes opciones: " << endl;
@@ -287,28 +289,40 @@ int main(){
 			    for (int k = 0; k < numCir; k++){
 			        muestraCirugias(cirugias[k]);
 			    }
+			    system("pause");
+			    system("cls");
 			    break;
 		      	
 		      	
 		    case 'B':
 			    altaPaciente(cirugias, pacientes);
+			    system("pause");
+			    system("cls");
 			    break;
 		        
 		        
 		    case 'C':
 			    consultaPorFecha(cirugias);
+			    system("pause");
+			    system("cls");
 			    break;
 		        
 		    case 'D':
 		        consultaCirugia(cirugias, pacientes);
+		        system("pause");
+			    system("cls");
 		        break;
 		        
 		    case 'E':
 		        consultaPorDoctor(cirugias, doctores);
+		        system("pause");
+			    system("cls");
 		        break;
 		        
 		    case 'F':
 		        consultaPorPaciente(cirugias, pacientes);
+		        system("pause");
+			    system("cls");
 		        break;
 		 
 		    case 'G':
