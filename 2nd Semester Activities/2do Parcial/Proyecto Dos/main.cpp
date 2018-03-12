@@ -95,7 +95,7 @@ void consultaPorFecha(Cirugias arrCir[]){
   //Se pude el mes dia y año
   int dia,mes,anio;
   bool existe;
-  cout<<"Teclea el dia, mes y año, en ese orden";
+  cout<<"Teclea el dia, mes y año, en ese orden"<<endl;
   cin>>dia>>mes>>anio;
   
   //Se valida que la fecha sea correcta
