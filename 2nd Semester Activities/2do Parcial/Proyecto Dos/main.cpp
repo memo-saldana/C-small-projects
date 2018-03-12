@@ -201,6 +201,9 @@ void consultaPorPaciente(Cirugias arrCir[], Pacientes arrPac[]){
 }
 
 int main(){
+
+	//Declaracion de los arreglos de doctores, pacientes, y cirugias, y de las demas variables utilizadas para llenarlos
+
 	Doctor doctores[5];
 	Pacientes pacientes[15];
 	Cirugias cirugias[10];
@@ -210,6 +213,7 @@ int main(){
 	Fecha fecha;
 	char option;
 	
+	//Se leen los doctores del archivo Doctores.txt
 	archEntDoct.open("Doctores.txt");
 	while(archEntDoct >> id >> nombre >> apellido >> especialidad && docs < 5){
 		nombre += " " + apellido;
@@ -222,7 +226,7 @@ int main(){
 	}
 	archEntDoct.close();
 
-
+	//Se leen los pacientes del archivo Pacientes.txt
 	archEntPas.open("Pacientes.txt");
 	while(archEntPas >> id >> nombre >> apellido >> genero >> edad && pacs < 15){
 		nombre += " " + apellido;
@@ -236,11 +240,13 @@ int main(){
 	}
 	archEntPas.close();
 
+	//Se pide el numero de cirugias a ingresar
 	do{
 		cout << "Teclee el numero de cirugias programadas.\n";
 		cin >> numCir;
 	}while(numCir < 0 || numCir > 15);
 
+	//Se ingresan los datos de cada uno, excepto los pacientes
 	for (int j = 0; j < numCir; j++){
 		cout << "Teclee el id de la " << j + 1 << " cirugia.\n";
 		cin >> id;
@@ -283,6 +289,7 @@ int main(){
 	    cin >> option;
     
 	    // Dependiendo de la opción se hace llamado a la funcion necesaria para cada opcion
+	    // Se utiliza system("pause") y sistem("cls") para mantener la consola limpia al correr el programa
 	    switch(toupper(option)){
 			case 'A':
 		      	
