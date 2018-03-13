@@ -146,6 +146,8 @@ void consultaCirugia(Cirugias arrCir[], Pacientes arrPac[]){
       muestraCirugias(arrCir[i]);
       flagC = true;
       
+      cout<<endl<<"Pacientes que tendran esta cirugia:"<<endl;
+
       // Posteriormente un par de arrays comparan el id del paciente que se encuentra en la cirugia con el array
       // de pacientes y si son iguales utiliza el metodo muestra de la clase paciente para impirmir la informacion
       // de los pacientes.
@@ -205,13 +207,13 @@ void consultaPorDoctor(Cirugias arrCir[], Doctor arrDoc[]){
     cout<< "El doctor no existe." << endl;
   }
   if(existe && !hay){
-    cout<< "No hay cirugias con este doctor.";
+    cout<< "No hay cirugias con este doctor."<<endl;
   }
 } 
 
 void consultaPorPaciente(Cirugias arrCir[], Pacientes arrPac[]){
   int idPaciente;
-  bool existe = false, hay = true;
+  bool existe = false, hay = false;
   
   cout<< "Teclea el ID del paciente." <<endl;
   cin>> idPaciente;

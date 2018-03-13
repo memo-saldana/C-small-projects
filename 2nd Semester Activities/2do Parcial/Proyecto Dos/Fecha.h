@@ -111,15 +111,11 @@ bool Fecha::esBisiesto(){
 
 }
 void Fecha::muestra(){
-    cout<<endl;
-    cout<<"----------------------------------------------"<<endl;
+    
     if (dia < 10)
         cout<<"0"<<dia<<"/"<<nombreMes()<<"/"<<anio;
     else
         cout<<dia<<"/"<<nombreMes()<<"/"<<anio;
-
-    cout<< endl << "----------------------------------------------"<<endl;
-
 }
 
 
