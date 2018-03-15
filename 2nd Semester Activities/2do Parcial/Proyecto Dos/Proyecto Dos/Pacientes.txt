@@ -1,0 +1,8 @@
+1 Juan Garza M 20
+2 Luis Pérez M 30
+3 Maria López F 18
+4 Soledad González F 29
+5 José Villarreal M 25
+6 Alejandro Martinez M 40
+7 Luis Garza M 17
+8 Luisa Trevino F 22

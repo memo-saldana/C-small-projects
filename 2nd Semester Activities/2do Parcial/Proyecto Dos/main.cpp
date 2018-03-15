@@ -1,3 +1,13 @@
+/*
+Nombres: José Guillermo Saldaña Cárdenas	| A01039888
+		 Emilio Fernando Alonso Villa 		| A00959385
+
+Descripción: Proyecto de 2do Parcial, utilizando clases, objetos, arreglos de objetos, composicion, lectura de archivos, y otros temas pasados programamos
+				sistema para administrar cirugias de un hospital, asignando un doctor a cada cirugia y los pacientes que necesitaran esa cirugia. Cada cirugia
+				tiene su fecha, descripcion, ID y se puede consultar las cirugias por pacientes, por doctores, por fecha, o por ID.
+
+Fecha: 12 marzo 2018
+*/
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>

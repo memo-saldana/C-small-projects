@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1520906528 source:c:\users\joséguillermo\documents\github\c-small-projects\2nd semester activities\2do parcial\proyecto dos\proyecto dos\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	"Cirugias.h"
+
+1520886897 c:\users\joséguillermo\documents\github\c-small-projects\2nd semester activities\2do parcial\proyecto dos\proyecto dos\cirugias.h
+	"Fecha.h"
+	"Doctor.h"
+	"Pacientes.h"
+
+1520906000 c:\users\joséguillermo\documents\github\c-small-projects\2nd semester activities\2do parcial\proyecto dos\proyecto dos\fecha.h
+
+1520886897 c:\users\joséguillermo\documents\github\c-small-projects\2nd semester activities\2do parcial\proyecto dos\proyecto dos\doctor.h
+
+1520742744 c:\users\joséguillermo\documents\github\c-small-projects\2nd semester activities\2do parcial\proyecto dos\proyecto dos\pacientes.h
+
