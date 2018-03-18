@@ -8,11 +8,12 @@ using namespace std;
 int main(){
 	Empleado emp[10];
 	char op;
-	int cant = 0, id, hora, min, seg, depto;
+	int cant = 0, id, hora, min, seg, depto, num;
+	bool dup, existe;
 	string nombre;
 
 	do{
-		cout<<"Eliga una opcion del menu."<<endl;
+		cout<<endl<<endl<<"Eliga una opcion del menu."<<endl;
 		cout<<"a. Alta de empleado."<<endl;
 		cout<<"b. Llegada tarde."<<endl;
 		cout<<"c. Cantidad de empleados en un departamento."<<endl;
@@ -23,11 +24,23 @@ int main(){
 		switch(toupper(op)){
 			case 'A':
 				if(cant<10){
+					dup = false;
 					cout<<"Teclea el ID del empleado."<<endl;
 					cin>>id;
 					emp[cant].setIdentidad(id);
 
+					for(int i = 0; i<cant; i++){
+						if(id == emp[i].getIdentidad()){
+							dup = true;
+						}
+					}
+					if(dup){
+						cout<<"El ID ya existe."<<endl;
+						break;
+					}
+
 					cout<<"Teclea el nombre del empleado "<<id<<endl;
+					cin.ignore();
 					getline(cin, nombre);
 					emp[cant].setNombre(nombre);
 
@@ -56,45 +69,69 @@ int main(){
 				break;
 			
 			case 'B':
-				cout<<"Teclea la hora, minuto y segundo de entrada, en ese orden y separados por espacios."<<endl;
-				cin>>hora>>min>>seg;
-				Tiempo temp(hora,min,seg);
-				cout<<endl<<"Los empleados que llegaron tarde: "<<endl;
-				for(int i=0; i<cant;i++){
+				if(cant>0){
 
-					if(temp < emp[i].getHoraEntrada()){
-						emp[i].muestra();
+					cout<<"Teclea la hora, minuto y segundo de entrada, en ese orden y separados por espacios."<<endl;
+					cin>>hora>>min>>seg;
+					Tiempo temp(hora,min,seg);
+					cout<<endl<<"Los empleados que llegaron tarde: "<<endl;
+					for(int i=0; i<cant;i++){
+
+						if(temp < emp[i].getHoraEntrada()){
+							emp[i].muestra();
+						}
 					}
 				}
+				else{
+					cout<<"Se debe dar de alta un empleado primero."<<endl;
+				}
 				break;
+				
 
-			case 'c':
-				cout<<"Tecea el departamento que se quiere buscar"<<endl;
-				cin>>depto;
+			case 'C':
+				if(cant>0){
 
-				cout<<"Empleados en el departamento "<<depto<<endl;
-				for(int i=0; i<cant; i++){
-					if(depto == emp[i].getDepto()){
-						emp[i].muestra();
+					cout<<"Tecea el departamento que se quiere buscar"<<endl;
+					cin>>depto;
+					
+					num=0;
+					for(int i=0; i<cant; i++){
+						if(depto == emp[i].getDepto()){
+							num++;
+						}
 					}
+					cout<<"Empleados en el departamento "<<depto<<": "<<num<<endl;
+				}
+				else{
+					cout<<"Se debe dar de alta un empleado primero."<<endl;
 				}
 				break;
 
 			case 'D':
-				cout<<"Teclea la identidad del empleado."<<endl;
-				cin>>id;
-				cout<<endl<<"Empleado: "<<endl;
-				for(int i=0; i<cant; i++){
-					if(id == emp[i].getIdentidad()){
-						emp[i].muestra();
+				if(cant>0){
+					cout<<"Teclea la identidad del empleado."<<endl;
+					cin>>id;
+					existe = false;
+					cout<<endl<<"Empleado: "<<endl;
+					for(int i=0; i<cant; i++){
+						if(id == emp[i].getIdentidad()){
+							emp[i].muestra();
+							existe = true;
+						}
 					}
+					if(!existe){
+						cout<<"No se encontro empleado con ese ID."<<endl;
+					}
+				}
+				else{
+					cout<<"Se debe dar de alta un empleado primero."<<endl;
 				}
 				break;
 
 			case 'E':
 				break;
 
-			case default:
+			default:
 				cout<<"Opcion invalida, intenta nuevamente."<<endl;
 
 		}
