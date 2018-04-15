@@ -15,5 +15,14 @@ protected:
 
 Figura::Figura(){
 }
+double Figura::calcArea(){
+	return 0;
+}
+double Figura::calcPerimetro(){
+	return 0;
+}
+void Figura::muestraQueSoy(){
+	cout<<"Soy una Figura"<<endl;
+}
 
 #endif //  Figura_h_included

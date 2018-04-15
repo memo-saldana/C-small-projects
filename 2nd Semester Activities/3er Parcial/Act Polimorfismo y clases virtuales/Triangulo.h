@@ -47,7 +47,7 @@ double Triangulo::calcPerimetro(){
 }
 
 void Triangulo::muestraQueSoy(){
-    cout << "soy un Triangulo";
+    cout << "Soy un triangulo."<<endl;
 }
 
 #endif //  Triangulo_h_included

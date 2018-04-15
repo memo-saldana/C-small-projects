@@ -47,7 +47,7 @@ double Rectangulo::calcPerimetro(){
 }
 
 void Rectangulo::muestraQueSoy(){
-    cout << "soy un Rectangulo";
+    cout << "Soy un rectangulo."<<endl;
 }
 
 #endif //  Rectangulo_h_included
