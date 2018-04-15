@@ -26,16 +26,16 @@ Rectangulo::Rectangulo(double b, double a){
     altura = a;
 }
 
-void Rectangulo::getBase(){
+double Rectangulo::getBase(){
     return base;
 }
-void Rectangulo::getAltura(){
+double Rectangulo::getAltura(){
     return altura;
 }
-double Rectangulo::setAltura(double a){
+void Rectangulo::setAltura(double a){
     altura = a;
 }
-double Rectangulo::setBase(double b){
+void Rectangulo::setBase(double b){
     base = b;
 }
 

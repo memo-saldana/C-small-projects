@@ -1,7 +1,7 @@
 #ifndef Circulo_h_included
 #define Circulo_h_included
-
-class Circulo : public Figure{
+#include "Figura.h"
+class Circulo : public Figura{
 private:
 	double radio;
 public:

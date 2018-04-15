@@ -26,16 +26,16 @@ Triangulo::Triangulo(double b, double a){
     altura = a;
 }
 
-void Triangulo::getBase(){
+double Triangulo::getBase(){
     return base;
 }
-void Triangulo::getAltura(){
+double Triangulo::getAltura(){
     return altura;
 }
-double Triangulo::setAltura(double a){
+void Triangulo::setAltura(double a){
     altura = a;
 }
-double Triangulo::setBase(double b){
+void Triangulo::setBase(double b){
     base = b;
 }
 
