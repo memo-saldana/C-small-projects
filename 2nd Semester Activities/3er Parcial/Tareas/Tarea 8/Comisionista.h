@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Comisionista_h_included
+#define Comisionista_h_included
+#include "Empleado.h"
 
 class Comisionista: public Empleado{
 private:
@@ -57,3 +59,5 @@ void Comisionista::mostrar(){
 	cout<<"Sueldo por comision: $"<<calcularPago()-sueldoBase<<endl;
 	cout<<"Sueldo Total: $"<<calcularPago()<<endl;
 }
+
+#endif

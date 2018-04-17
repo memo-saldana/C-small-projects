@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Empleado_h_included
+#define Empleado_h_included
+
 class Empleado{
 protected:
 	string nombre, apellidos;
@@ -23,8 +25,8 @@ public:
 	void setSueldoBase(double);	
 	
 	//Metodos virtuales puros
-	virtual double calcularPago()=0;
-	virtual void mostrar()=0;
+	virtual double calcularPago() = 0;
+	virtual void mostrar() = 0;
 };
 
 //Constructores
@@ -70,3 +72,5 @@ void Empleado::setNomina(int nomina){
 void Empleado::setSueldoBase(double sueldoBase){
 	this->sueldoBase = sueldoBase;
 }
+
+#endif

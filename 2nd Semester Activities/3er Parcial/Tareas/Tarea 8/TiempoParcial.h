@@ -1,6 +1,7 @@
-#pragma once
-
-class TiempoParcial:public Empleado{
+#ifndef TiempoParcial_h_included
+#define TiempoParcial_h_included
+#include "Empleado.h"
+class TiempoParcial : public Empleado{
 private:
 	int horasExtra;
 
@@ -33,12 +34,12 @@ int TiempoParcial::getHorasExtra(){
 }
 
 //Modificacion
-void TiempoParcial::setHorasExtra(int){
+void TiempoParcial::setHorasExtra(int horasExtra){
 	this->horasExtra = horasExtra;
 }
 
 double TiempoParcial::caclularPago(){
-		return sueldoBase+horasExtra*250;
+	return sueldoBase + horasExtra*250;
 }
 void TiempoParcial::mostrar(){
 	cout<<"Nomina: "<<nomina<<endl;
@@ -48,3 +49,5 @@ void TiempoParcial::mostrar(){
 	cout<<"Monto por horas extra: $"<<caclularPago() - sueldoBase<<endl;
 	cout<<"Sueldo Total: "<<caclularPago()<<endl;
 }
+
+#endif

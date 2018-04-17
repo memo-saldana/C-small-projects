@@ -2,8 +2,9 @@
 #include <string>
 using namespace std;
 #include "Empleado.h"
-#include "Comisionista.h"
 #include "TiempoParcial.h"
+#include "Comisionista.h"
+
 
 int main(){
 	Empleado *arr[4];
@@ -51,7 +52,7 @@ int main(){
 		cout<<"Teclea las horas extra del empleado de Tiempo Parcial "<<i+1<<endl;
 		cin>>horasExtra;
 
-		TiempoParcial *parTemp= new TiempoParcial(nombre,apellidos,nomina,sueldoBase,horasExtra);
+		TiempoParcial *parTemp = new TiempoParcial( nombre, apellidos, nomina, sueldoBase, horasExtra);
 		arr[i]=parTemp;
 	}
 
