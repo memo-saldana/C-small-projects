@@ -11,6 +11,7 @@ int main(){
 	string nombre, apellidos;
 	int nomina, horasExtra;
 	double sueldoBase,cantVendida;
+	TiempoParcial tmp;
 
 	for(int i=0;i<2;i++){
 		cout<<"Teclea el nombre del Comisionista "<< i+1<<endl;

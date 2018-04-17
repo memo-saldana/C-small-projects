@@ -16,7 +16,7 @@ public:
 	//Modificacion
 	void setHorasExtra(int);
 
-	double caclularPago();
+	double calcularPago();
 	void mostrar();
 };
 
@@ -38,7 +38,7 @@ void TiempoParcial::setHorasExtra(int horasExtra){
 	this->horasExtra = horasExtra;
 }
 
-double TiempoParcial::caclularPago(){
+double TiempoParcial::calcularPago(){
 	return sueldoBase + horasExtra*250;
 }
 void TiempoParcial::mostrar(){
@@ -46,8 +46,8 @@ void TiempoParcial::mostrar(){
 	cout<<"Nombre: "<<nombre<<" "<<apellidos<<endl;
 	cout<<"Saldo Base: $"<<sueldoBase<<endl;
 	cout<<"Horas extra trabajadas: "<<horasExtra<<endl;
-	cout<<"Monto por horas extra: $"<<caclularPago() - sueldoBase<<endl;
-	cout<<"Sueldo Total: "<<caclularPago()<<endl;
+	cout<<"Monto por horas extra: $"<<calcularPago() - sueldoBase<<endl;
+	cout<<"Sueldo Total: "<<calcularPago()<<endl;
 }
 
 #endif
