@@ -1,52 +1,59 @@
 #ifndef Pilas_h_included
 #define Pilas_h_included
 
-template <class T>
+
 class Pilas{
 private:
 	int tope;
-	T arrDatos[15];
+	int arrDatos[15];
 
 public:
+	class errorPilas{
+	public:
+		string observa;
+		errorPilas(string observa){
+			this->observa=observa;
+		}
+	};
 	Pilas();
-	void meter(T dato);
+	void meter(int dato);
 	void sacar();
 	void observa();
 
 };
-template <class T>
-Pilas<T>::Pilas(){
+
+Pilas::Pilas(){
 	tope = 0;
 }
 
-template <class T>
-void Pilas<T>::meter(T dato){
+
+void Pilas::meter(int dato){
 	if(tope<15){
 		arrDatos[tope] = dato;
 		tope++;
 	}
 	else{
-		cout<<"Pila llena."<<endl;
+		throw errorPilas("meter");
 	}
 }
 
-template <class T>
-void Pilas<T>::sacar(){
+
+void Pilas::sacar(){
 	if(tope>0){
 		cout<<arrDatos[tope--]<<endl;
 	}
 	else{
-		cout<<"Pila vacia."<<endl;
+		throw errorPilas("sacar");
 	}
 }
 
-template <class T>
-void Pilas<T>::observa(){
+
+void Pilas::observa(){
 	if(tope>0){
 		cout<<arrDatos[tope]<<endl;
 	}
 	else{
-		cout<<"Pila vacia."<<endl;
+		throw errorPilas("observar");
 	}
 	
 }
