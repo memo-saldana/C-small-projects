@@ -73,10 +73,10 @@ int main() {
 		}
 	}
 	if(rowsCorrect && columnsCorrect && matrixCorrect){
-		cout<<"YES";
+		cout<<"YES"<<endl;
 	}
 	else {
-		cout<<"NO";
+		cout<<"NO"<<endl;
 	}
 
 	return 0;
