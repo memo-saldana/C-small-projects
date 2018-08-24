@@ -7,4 +7,4 @@ Other contributors are mainly classmates that I work with on class assignments a
 
 ##First Semester
 
-[First semester](./'1st Semester Activites') contains small practices made to learn fundamentals such as math operators and boolean operators, input and output through console, etc.
+[First semester]('./1st Semester Activites') contains small practices made to learn fundamentals such as math operators and boolean operators, input and output through console, etc.
