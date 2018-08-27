@@ -7,7 +7,7 @@ public:
 	T getDato(int i);
 	bool add(T element);
 	int search(T element);
-	void ordena(bool ascendente);
+	void sort(bool ascendente);
 	Lista<T> operator = (Lista l);
 	bool operator == (Lista l);
 	void print();
@@ -68,12 +68,12 @@ int Lista<T>::search(T element){
 
 
 template<class T>
-void Lista<T>::ordena(bool ascendente){
+void Lista<T>::sort(bool ascendente){
 	if(ascendente){
-		sort(arrDatos, arrDatos + iCant);
+		std::sort(arrDatos, arrDatos + iCant);
 	}
 	else{
-		sort(arrDatos, arrDatos + iCant, greater<T>());
+		std::sort(arrDatos, arrDatos + iCant, greater<T>());
 	}
 }
 

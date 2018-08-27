@@ -32,7 +32,7 @@ int main(){
 		
 	}
 
-	iLista2.ordena(true);
+	iLista2.sort(true);
 
 	cout<<"iLista"<<endl;
 	iLista.print();
@@ -48,12 +48,10 @@ int main(){
 		
 	}
 
-	iLista2.ordena(false);
+	iLista2.sort(false);
 	cout<<endl<<"iLista2"<<endl;
 	iLista2.print();
 	
-	cout<<"Check"<<endl;
-
 	Lista<int> iLista3(iLista2);
 
 	cout<<endl<<"iLista3"<<endl;
