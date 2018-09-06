@@ -36,7 +36,7 @@ void Node<T>::setData(T data){
 }
 
 template <class T>
-Node<T>* Node<T>::getNext{
+Node<T>* Node<T>::getNext(){
 	return next;
 }
 
