@@ -72,12 +72,18 @@ int main(){
 		miLista3.print();
 
 		if(miLista2 == miLista){
-			cout<< "Iguales";
+			cout<< "Iguales 2 1"<<endl;
 		}
 		else {
-			cout<< "Diferentes";
+			cout<< "Diferentes 2 1"<<endl;
 		}
 
+		if(miLista3 == miLista) {
+			cout<< "Iguales 3 1"<<endl;
+		}
+		else {
+			cout<< "Diferentes 3 1"<<endl;
+		}
 		delete laLista;
     delete tuLista;
 

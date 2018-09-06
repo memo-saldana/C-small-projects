@@ -318,7 +318,6 @@ void LinkedList<T>::operator = (const LinkedList<T> &LL){
 		Node<T> *old, *nw;
 		old= LL.head;
 		this->head = new Node<T>(old->getData(), NULL);
-		this->size=1;
 		nw = this-> head;
 		old= old->getNext();
 
@@ -327,6 +326,7 @@ void LinkedList<T>::operator = (const LinkedList<T> &LL){
 			old=old->getNext();
 			nw= nw->getNext();
 		}
+		this->size = LL.size;
 	}
 }
 
