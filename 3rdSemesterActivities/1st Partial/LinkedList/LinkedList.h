@@ -1,3 +1,5 @@
+// Jose Guillermo Saldaña Cardenas A01039888
+// Implementacion de metodos para lista ligada
 #include "Node.h"
 
 template <class T>
