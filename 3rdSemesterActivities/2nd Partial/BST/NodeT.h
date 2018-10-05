@@ -2,13 +2,14 @@ class NodeT
 {
 public:
 	NodeT(int data);
-	~NodeT();
+	// ~NodeT();
 	int getData();
 	NodeT* getLeft();
 	NodeT* getRight();
 	void setData(int data);
 	void setLeft(NodeT *left);
 	void setRight(NodeT *right);
+	
 
 private:
 	int data;
@@ -18,16 +19,29 @@ private:
 
 NodeT::NodeT(int data){
 	this->data = data;
-	this-> left = NULL;
-	this-> right = NULL;
+	this-> left = nullptr;
+	this-> right = nullptr;
 }
 
 // ~NodeT();
+
 int NodeT::getData(){
 	return data;
 }
-NodeT* NodeT::getLeft();
-NodeT* NodeT::getRight();
-void NodeT::setData(int data);
-void setLeft(NodeT *left);
-void setRight(NodeT *right);
+NodeT* NodeT::getLeft(){
+	return left;
+}
+NodeT* NodeT::getRight(){
+	return right;
+}
+
+void NodeT::setData(int data){
+	this->data = data;
+}
+void NodeT::setLeft(NodeT *left){
+	this->left = left;
+}
+void NodeT::setRight(NodeT *right){
+	this->right = right;
+}
+
