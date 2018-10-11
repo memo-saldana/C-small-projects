@@ -8,7 +8,11 @@ public:
 	bool search(int data);
 	void remove(int data);
 	void print(int c);
-
+	void printLeaves();
+	int count();
+	int height();
+	void ancestors(int data);
+	int whatLevelamI(int data);
 private:
 	NodeT *root;
 	int howManyChildren(NodeT *r);
@@ -18,6 +22,10 @@ private:
 	void inOrder(NodeT *r);
 	void postOrder(NodeT *r);
 	void freeup(NodeT *r);
+	void PL(NodeT *r);
+	int getN(NodeT *r);
+	int getHeight(NodeT *r);
+	void printByLevel();
 
 };
 
@@ -204,6 +212,108 @@ void BST::print(int c){
 		case 3:
 			postOrder(root);
 			break;
+
+		case 5:
+			printByLevel();
 	}
 	cout<<endl;
+}
+
+void BST::PL(NodeT *r){
+	if(r!=NULL){
+		if(r->getLeft() == NULL && r->getRight() == NULL){
+			cout<<r->getData()<<' ';
+		} else {
+			PL(r->getLeft());
+			PL(r->getRight());
+		}
+	}
+}
+
+void BST::printLeaves(){
+	PL(root);
+}
+
+int BST::getN(NodeT *r){
+	if(r == NULL){
+		return 0;
+	} else {
+		return 1 + getN(r->getLeft()) + getN(r->getRight());
+	}
+}
+
+int BST::count(){
+	return getN(root);
+}
+
+int BST::getHeight(NodeT *r){
+	if(r!=NULL){
+		if(r->getLeft() == NULL && r->getRight() == NULL){
+			return 1;
+		}
+		else {
+			return 1 + max(getHeight(r->getLeft()),getHeight(r->getRight()));
+		}	
+	}
+	else{
+		return 0;
+	}
+}
+
+int BST::height(){
+	return getHeight(root);
+}
+
+void BST::ancestors(int data){
+	stack<NodeT *> stack;
+	NodeT *curr = root;
+	while(curr!= NULL && curr->getData() != data){
+		stack.push(curr);
+		curr = (data > curr->getData() ) ? curr->getRight() : curr->getLeft();
+	}
+
+	while(!stack.empty()){
+		cout<<stack.top()->getData()<<" ";
+		stack.pop();
+	}
+}
+
+
+
+int BST::whatLevelamI(int data){
+	NodeT *curr = root;
+	int level = 0;
+	while(curr != NULL){
+		if(curr->getData() == data){
+			return level;
+		} else{
+			curr = (data > curr->getData()) ? curr->getRight(): curr->getLeft();
+		}
+		
+		level++;
+	}
+	return -1;
+}
+
+void BST::printByLevel(){
+	if(root!=NULL){
+		queue<NodeT *> q;
+		NodeT *temp;
+		q.push(root);
+		while(!q.empty()){
+			temp = q.front();
+			q.pop();
+			cout << temp->getData() << " ";
+
+      if(temp->getLeft()!=NULL){
+	      q.push(temp->getLeft());
+	    }
+	    if(temp->getRight()!=NULL){
+	    	q.push(temp->getRight());
+	    }
+
+
+		}		
+	}
+
 }

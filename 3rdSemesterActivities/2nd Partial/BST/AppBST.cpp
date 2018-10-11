@@ -1,4 +1,7 @@
+#include <algorithm>
 #include <iostream>
+#include <stack>
+#include <queue>
 using namespace std;
 
 #include "BST.h"
@@ -26,6 +29,18 @@ int main()
 	} else{
 		cout <<" No encontro"<<endl;
 	}
+	miArbol.printLeaves();
+
+	cout<<endl<<miArbol.count()<<endl;
+
+	cout<<miArbol.height()<<endl;
+
+	miArbol.ancestors(13);
+
+	cout<<endl<<miArbol.whatLevelamI(8);
+
+	cout<<endl;
+	miArbol.print(5);
 
 	return 0;
 }
