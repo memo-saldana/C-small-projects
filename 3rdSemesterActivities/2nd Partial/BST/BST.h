@@ -1,4 +1,4 @@
-/*
+	/*
 	Jose Guillermo Saldana Cardenas
 	A01039888
 	BST
@@ -37,14 +37,13 @@ public:
 	// return the ancestors of a given treenode
 	void ancestors(int data);
 
-	// retur the level of the given node 
+	// return the level of the given node 
 	int whatLevelamI(int data);
-<<<<<<< HEAD
-
-=======
+	
 	int nearestRelative(int a, int b);
 	int maxWidth();
->>>>>>> 8b33fdbe27de5c99c47524429671a30c4a5535bd
+	bool operator == (const BST& treeB);
+
 private:
 	NodeT *root;
 	int howManyChildren(NodeT *r);
@@ -58,6 +57,7 @@ private:
 	int getN(NodeT *r);
 	int getHeight(NodeT *r);
 	void printByLevel();
+	bool compTrees(NodeT *a, NodeT *b);
 
 };
 
@@ -379,7 +379,7 @@ int BST::nearestRelative(int a, int b){
 
 	NodeT *curr1=root;
 	NodeT *curr2=root;
-	int res=NULL;
+	int res=-1;
 	while(curr1!= NULL && curr2!=NULL){
 		cout<<curr1->getData()<<" - "<<curr2->getData()<<endl;
 		if(curr1->getData() != curr2->getData()){
@@ -391,7 +391,7 @@ int BST::nearestRelative(int a, int b){
 		}
 
 	}
-	return NULL;
+	return -1;
 }
 
 int BST::maxWidth(){
@@ -418,4 +418,27 @@ int BST::maxWidth(){
 		}
 	}
 	return res;
+}
+
+bool BST::compTrees(NodeT *a, NodeT *b){
+	if(a==NULL && b==NULL){
+		true;
+	} else if(a!=NULL && b!= NULL){
+		cout<< a->getData() << " - " << b->getData() <<endl;
+		if(a->getData() != b->getData()){
+			return false;
+		} else {
+			return compTrees(a->getLeft(),b->getLeft()) && compTrees(a->getRight(),b->getRight());
+		}
+	}
+	else{
+		return false;
+	}
+}
+
+
+bool BST::operator == (const BST& treeB){
+	// cout<<"compTrees"<<endl;
+	return compTrees(this->root,treeB.root);
+
 }
