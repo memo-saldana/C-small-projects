@@ -19,8 +19,8 @@ private:
 
 NodeT::NodeT(int data){
 	this->data = data;
-	this-> left = nullptr;
-	this-> right = nullptr;
+	this-> left = NULL;
+	this-> right = NULL;
 }
 
 // ~NodeT();

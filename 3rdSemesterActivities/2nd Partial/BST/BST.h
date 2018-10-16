@@ -13,6 +13,8 @@ public:
 	int height();
 	void ancestors(int data);
 	int whatLevelamI(int data);
+	int nearestRelative(int a, int b);
+	int maxWidth();
 private:
 	NodeT *root;
 	int howManyChildren(NodeT *r);
@@ -315,5 +317,67 @@ void BST::printByLevel(){
 
 		}		
 	}
+}
 
+int BST::nearestRelative(int a, int b){
+	// queue<int> queueA, queueB;
+	// int res;
+	// NodeT *curr=root;
+	// while(curr!= NULL && curr->getData() != a){
+	// 	queueA.push(curr->getData());
+	// 	curr = (a > curr->getData() ) ? curr->getRight() : curr->getLeft();
+	// }
+	// curr=root;
+	// while(curr!= NULL && curr->getData() != b){
+	// 	queueB.push(curr->getData());
+	// 	curr = (b > curr->getData() ) ? curr->getRight() : curr->getLeft();
+	// }
+	// while(queueA.front() == queueB.front()){
+	// 	res = queueA.front();
+	// 	queueA.pop();
+	// 	queueB.pop();
+	// }
+	// return res;
+
+	NodeT *curr1=root;
+	NodeT *curr2=root;
+	int res=NULL;
+	while(curr1!= NULL && curr2!=NULL){
+		cout<<curr1->getData()<<" - "<<curr2->getData()<<endl;
+		if(curr1->getData() != curr2->getData()){
+			return res;
+		} else {
+			res = curr1->getData();
+			curr1 = (a > curr1->getData() ) ? curr1->getRight() : curr1->getLeft();
+			curr2 = (b > curr2->getData() ) ? curr2->getRight() : curr2->getLeft();
+		}
+
+	}
+	return NULL;
+}
+
+int BST::maxWidth(){
+	if(root==NULL){
+		return 0;
+	}
+	int res=0;
+	queue<NodeT*> queue;
+	queue.push(root);
+	while(!queue.empty()){
+		int count = queue.size();
+		res = max(res,count);
+		while(count>0){
+			NodeT *t = queue.front();
+			queue.pop();
+
+			if(t->getLeft()!=NULL){
+				queue.push(t->getLeft());
+			}
+			if(t->getRight()!=NULL){
+				queue.push(t->getRight());
+			}
+			count--;
+		}
+	}
+	return res;
 }
