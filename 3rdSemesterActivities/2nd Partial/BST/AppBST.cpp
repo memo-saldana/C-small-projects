@@ -55,5 +55,9 @@ int main()
 
 	// cout<<endl;
 
+	cout<<endl<<miArbol.nearestRelative(13,65)<<endl;
+
+	cout<<miArbol.maxWidth()<<endl;
+
 	return 0;
 }
