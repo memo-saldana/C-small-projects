@@ -1,18 +1,45 @@
+/*
+	Jose Guillermo Saldana Cardenas
+	A01039888
+	BST
+*/
+
 #include "NodeT.h"
+#include <algorithm>
+#include <stack>
+#include <queue>
+ 
 class BST
 {
 public:
+
+	// Constructor & destroyer
 	BST();
 	~BST();
+
+	// Insert, search, delete a number
 	void add(int data);
 	bool search(int data);
 	void remove(int data);
+
+	// print 1. preoder 2. inorder 3. postorder 5. level by level
 	void print(int c);
+
+	// print leaf nodes only
 	void printLeaves();
+
+	// count amount of treenodes the tree has
 	int count();
+
+  // return the height of the tree
 	int height();
+
+	// return the ancestors of a given treenode
 	void ancestors(int data);
+
+	// retur the level of the given node 
 	int whatLevelamI(int data);
+
 private:
 	NodeT *root;
 	int howManyChildren(NodeT *r);
@@ -212,9 +239,12 @@ void BST::print(int c){
 		case 3:
 			postOrder(root);
 			break;
-
+		case 4:
+			printLeaves();
+			break;
 		case 5:
 			printByLevel();
+			break;
 	}
 	cout<<endl;
 }
@@ -248,12 +278,8 @@ int BST::count(){
 
 int BST::getHeight(NodeT *r){
 	if(r!=NULL){
-		if(r->getLeft() == NULL && r->getRight() == NULL){
-			return 1;
-		}
-		else {
-			return 1 + max(getHeight(r->getLeft()),getHeight(r->getRight()));
-		}	
+		return 1 + max(getHeight(r->getLeft()),getHeight(r->getRight()));
+	
 	}
 	else{
 		return 0;
@@ -267,15 +293,24 @@ int BST::height(){
 void BST::ancestors(int data){
 	stack<NodeT *> stack;
 	NodeT *curr = root;
-	while(curr!= NULL && curr->getData() != data){
+	while(curr!= NULL){
+		if( curr->getData() == data ){
+			if(stack.empty()){
+				cout<<"Ese dato no tiene ancestros."<<endl;
+			}
+			else{
+				while(!stack.empty()){
+					cout<<stack.top()->getData()<<" ";
+					stack.pop();
+				}
+				cout<<endl;
+			}
+			return;
+		}
 		stack.push(curr);
 		curr = (data > curr->getData() ) ? curr->getRight() : curr->getLeft();
 	}
-
-	while(!stack.empty()){
-		cout<<stack.top()->getData()<<" ";
-		stack.pop();
-	}
+	cout<<"El dato no esta en el arbol."<<endl;
 }
 
 
@@ -286,10 +321,10 @@ int BST::whatLevelamI(int data){
 	while(curr != NULL){
 		if(curr->getData() == data){
 			return level;
-		} else{
-			curr = (data > curr->getData()) ? curr->getRight(): curr->getLeft();
-		}
+		} 
 		
+		curr = (data > curr->getData()) ? curr->getRight(): curr->getLeft();
+			
 		level++;
 	}
 	return -1;
@@ -298,8 +333,8 @@ int BST::whatLevelamI(int data){
 void BST::printByLevel(){
 	if(root!=NULL){
 		queue<NodeT *> q;
-		NodeT *temp;
 		q.push(root);
+		NodeT *temp;
 		while(!q.empty()){
 			temp = q.front();
 			q.pop();

@@ -20,27 +20,40 @@ int main()
 	miArbol.add(65);
 	miArbol.add(13);
 
-	miArbol.print(1);
-	miArbol.print(2);
-	miArbol.print(3);
+	// cout<<"1"<<endl;
+	// miArbol.print(1);
+	// cout<<"2"<<endl;
+	// miArbol.print(2);
+	// cout<<"3"<<endl;
+	// miArbol.print(3);
+	// cout<<"4"<<endl;
+	// miArbol.print(4);
+	// cout<<"5"<<endl;
+	// miArbol.print(5);
 
-	if(miArbol.search(100)){
-		cout<<"Encontro"<<endl;
-	} else{
-		cout <<" No encontro"<<endl;
-	}
-	miArbol.printLeaves();
+	// if(miArbol.search(100)){
+	// 	cout<<"Encontro"<<endl;
+	// } else{
+	// 	cout <<" No encontro"<<endl;
+	// }
 
-	cout<<endl<<miArbol.count()<<endl;
+	// cout<<endl<<miArbol.count()<<endl;
 
-	cout<<miArbol.height()<<endl;
+	// cout<<miArbol.height()<<endl;
+	cout<<"Los ancestros de 50 son: ";
+	miArbol.ancestors(50);
+	cout<<"Los ancestros de 12 son: ";
+	miArbol.ancestors(12);
+	cout<<"Los ancestros de 102 son: ";
+	miArbol.ancestors(102);
 
-	miArbol.ancestors(13);
+	cout<<"El nivel del dato 50 es: "<<miArbol.whatLevelamI(50)<<endl;
+	cout<<"El nivel del dato 102 es: "<<miArbol.whatLevelamI(102)<<endl;
+	cout<<"El nivel del dato 12 es: "<<miArbol.whatLevelamI(12)<<endl;
 
 	cout<<endl<<miArbol.whatLevelamI(8);
 
-	cout<<endl;
-	miArbol.print(5);
+	// cout<<endl;
 
 	return 0;
 }
