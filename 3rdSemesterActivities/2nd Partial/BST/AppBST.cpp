@@ -34,9 +34,9 @@ int main()
 	// cout<<"5"<<endl;
 	cout<<"1"<<endl;
 	miArbol.print(5);
-
-	cout<<"3"<<endl;
-	miArbol3.print(5);
+	miArbol.mirror();
+	cout<<"Mirror"<<endl;
+	miArbol.print(5);
 
 	// if(miArbol.search(100)){
 	// 	cout<<"Encontro"<<endl;

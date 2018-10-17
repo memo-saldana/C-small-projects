@@ -43,10 +43,16 @@ public:
 	// return the level of the given node 
 	int whatLevelamI(int data);
 	
+	// return the value of the nearest ancestor of two numbers
 	int nearestRelative(int a, int b);
+
+	// return size of the level with the biggest width
 	int maxWidth();
+
+	// == overload
 	bool operator == (const BST& treeB);
 
+	void mirror();
 private:
 	NodeT *root;
 	int howManyChildren(NodeT *r);
@@ -62,6 +68,7 @@ private:
 	void printByLevel();
 	bool compTrees(NodeT *a, NodeT *b);
 	void copy(NodeT *t1, NodeT *t2);
+	void swap(NodeT *r);
 
 };
 
@@ -468,4 +475,18 @@ bool BST::operator == (const BST& treeB){
 	// cout<<"compTrees"<<endl;
 	return compTrees(this->root,treeB.root);
 
+}
+
+void BST::swap(NodeT *r){
+	if(r != NULL){
+		NodeT *temp = r->getLeft();
+		r->setLeft(r->getRight());
+		r->setRight(temp);
+		swap(r->getLeft());
+		swap(r->getRight());
+	}
+}
+
+void BST::mirror(){
+	swap(root);
 }
