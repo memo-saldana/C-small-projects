@@ -17,6 +17,9 @@ public:
 	BST();
 	~BST();
 
+	// Copy Constructor 
+	BST(const BST& treeB);
+
 	// Insert, search, delete a number
 	void add(int data);
 	bool search(int data);
@@ -58,6 +61,7 @@ private:
 	int getHeight(NodeT *r);
 	void printByLevel();
 	bool compTrees(NodeT *a, NodeT *b);
+	void copy(NodeT *t1, NodeT *t2);
 
 };
 
@@ -65,6 +69,29 @@ private:
 BST::BST(){
 	root=NULL;	
 }
+
+void BST::copy(NodeT *t1, NodeT *t2){
+
+	if(t2->getLeft()!=NULL){
+		t1->setLeft(new NodeT(t2->getLeft()->getData()));
+		copy(t1->getLeft(),t2->getLeft());
+	}
+	if(t2->getRight()!=NULL){
+		t1->setRight(new NodeT(t2->getRight()->getData()));
+		copy(t1->getRight(),t2->getRight());
+	}
+}
+
+BST::BST(const BST& treeB){
+	if(treeB.root == NULL){
+		this->root = NULL;
+	}
+	else {
+		root = new NodeT(treeB.root->getData());
+		copy(this->root,treeB.root);
+	}
+}
+
 
 void BST::freeup(NodeT *r){
 	if(r!=NULL){

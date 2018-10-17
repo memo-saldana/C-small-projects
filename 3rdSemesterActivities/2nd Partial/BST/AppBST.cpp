@@ -10,6 +10,7 @@ int main()
 {
 	BST miArbol,miArbol2, A, B;
 
+
 	miArbol.add(12);
 	miArbol.add(100);
 	miArbol.add(45);
@@ -20,15 +21,7 @@ int main()
 	miArbol.add(65);
 	miArbol.add(13);
 	
-	miArbol2.add(12);
-	miArbol2.add(100);
-	miArbol2.add(45);
-	miArbol2.add(50);
-	miArbol2.add(8);
-	miArbol2.add(10);
-	miArbol2.add(-5);
-	miArbol2.add(65);
-	miArbol2.add(13);
+	BST miArbol3(miArbol);
 
 	// cout<<"1"<<endl;
 	// miArbol.print(1);
@@ -39,7 +32,11 @@ int main()
 	// cout<<"4"<<endl;
 	// miArbol.print(4);
 	// cout<<"5"<<endl;
-	// miArbol.print(5);
+	cout<<"1"<<endl;
+	miArbol.print(5);
+
+	cout<<"3"<<endl;
+	miArbol3.print(5);
 
 	// if(miArbol.search(100)){
 	// 	cout<<"Encontro"<<endl;
@@ -68,13 +65,6 @@ int main()
 	// cout<<endl<<miArbol.nearestRelative(13,65)<<endl;
 
 	// cout<<miArbol.maxWidth()<<endl;
-
-	if(A == B){
-		cout<<"Iguales"<<endl;
-	} else {
-		cout<<"Diferentes"<<endl;
-	}
-
 
 	return 0;
 }
