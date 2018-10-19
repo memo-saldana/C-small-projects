@@ -1,4 +1,4 @@
-	/*
+/*
 	Jose Guillermo Saldana Cardenas
 	A01039888
 	BST
@@ -52,6 +52,7 @@ public:
 	// == overload
 	bool operator == (const BST& treeB);
 
+	// mirrors the BST to have bigger numbers on the left and smaller on the right. 
 	void mirror();
 private:
 	NodeT *root;
@@ -89,7 +90,7 @@ void BST::copy(NodeT *t1, NodeT *t2){
 	}
 }
 
-BST::BST(const BST& treeB){
+	BST::BST(const BST& treeB){
 	if(treeB.root == NULL){
 		this->root = NULL;
 	}
@@ -415,7 +416,7 @@ int BST::nearestRelative(int a, int b){
 	NodeT *curr2=root;
 	int res=-1;
 	while(curr1!= NULL && curr2!=NULL){
-		cout<<curr1->getData()<<" - "<<curr2->getData()<<endl;
+	
 		if(curr1->getData() != curr2->getData()){
 			return res;
 		} else {
@@ -458,7 +459,7 @@ bool BST::compTrees(NodeT *a, NodeT *b){
 	if(a==NULL && b==NULL){
 		true;
 	} else if(a!=NULL && b!= NULL){
-		cout<< a->getData() << " - " << b->getData() <<endl;
+		
 		if(a->getData() != b->getData()){
 			return false;
 		} else {
@@ -472,7 +473,6 @@ bool BST::compTrees(NodeT *a, NodeT *b){
 
 
 bool BST::operator == (const BST& treeB){
-	// cout<<"compTrees"<<endl;
 	return compTrees(this->root,treeB.root);
 
 }
