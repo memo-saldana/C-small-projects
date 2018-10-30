@@ -3,6 +3,11 @@
 #include <stack>
 using namespace std;
 
+
+bool comp(int x, int y){
+	return 
+}
+
 struct punto
 {
   int x, y;

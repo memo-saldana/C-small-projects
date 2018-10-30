@@ -199,6 +199,7 @@ bool BST::search(int data){
 	}
 	return false;
 }
+
 void BST::remove(int data){
 	NodeT *curr = root;
 	NodeT *father = NULL;
@@ -433,12 +434,15 @@ int BST::maxWidth(){
 	if(root==NULL){
 		return 0;
 	}
+
 	int res=0;
 	queue<NodeT*> queue;
 	queue.push(root);
+	
 	while(!queue.empty()){
 		int count = queue.size();
 		res = max(res,count);
+	
 		while(count>0){
 			NodeT *t = queue.front();
 			queue.pop();
@@ -446,10 +450,13 @@ int BST::maxWidth(){
 			if(t->getLeft()!=NULL){
 				queue.push(t->getLeft());
 			}
+	
 			if(t->getRight()!=NULL){
 				queue.push(t->getRight());
 			}
+	
 			count--;
+	
 		}
 	}
 	return res;
