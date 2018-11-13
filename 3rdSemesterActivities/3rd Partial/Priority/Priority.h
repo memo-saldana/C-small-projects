@@ -1,5 +1,7 @@
-#pragma once
+// Jose Guillermo Saldana Cardenas A01039888
+// Implementacion de priority queue
 #include <vector>
+
 class Priority {
 public:
 	Priority();
@@ -50,25 +52,25 @@ void Priority::push(int data){
 
 
 void Priority::pop(){
+	int higher;
 	swap(heap[0], heap[heap.size()-1]);
-	heap.erase(heap.end()-1);
-
+	heap.pop_back();
 	
-	for(int i=0;i<(heap.size()-1)/2;++i){
-		if(compare(heap[(i+1)*2-1],heap[(i+1)*2])){
-			if(!compare(heap[i], heap[(i+1)*2-1])){
-				swap(heap[i],heap[(i+1)*2-1]);
-			}
-
+	int n =heap.size()-1;
+	
+	for(int i=0;i<(heap.size())/2;++i){
+		if((i+1)*2<heap.size()-1){
+			higher = compare(heap[(i+1)*2-1],heap[(i+1)*2]) ? (i+1)*2-1:(i+1)*2; 
 		} else {
-			if(!compare(heap[i], heap[(i+1)*2])){
-				swap(heap[i],heap[(i+1)*2]);
-			}
+			higher = (i+1)*2-1;
+		}
+		if(compare(heap[higher],heap[i])){
+			swap(heap[higher],heap[i]);
 		}
 	}
 }
 int Priority::top(){
-	if(heap.size()!=0){
+	if(!heap.empty()){
 		return heap[0];
 	}
 	return -1;
@@ -77,7 +79,7 @@ int Priority::size(){
 	return heap.size();
 }
 bool Priority::empty(){
-	return heap.size()==0;
+	return heap.empty();
 }
 
 void Priority::print(){
