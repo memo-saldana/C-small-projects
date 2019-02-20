@@ -14,3 +14,6 @@ Other contributors are mainly classmates that I work with on class assignments a
 
 ## Third Semester
 [Third semester](3rdSemesterActivities/) is focused on Data structures and common algorithms like QuickSort, BubbleSort,MergeSort,BinarySearches, etc.
+
+
+HOLA MENSCHEN
