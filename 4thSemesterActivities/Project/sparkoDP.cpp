@@ -3,8 +3,9 @@
 #include <climits>
 using namespace std;
 
-void TSP( vector<vector<int>> ady, vector<bool> &visited, int nivel, int act, int acum, int &costo ){
-  // visited[act] = true;
+void TSP( vector<vector<int>> ady, vector<bool> visited, int nivel, int act, int acum, int &costo ){
+  visited[act] = true;
+
   // si se completo un ciclo hamiltoneano,
   if(nivel == ady.size() && ady[act][0] != INT_MAX){
     // acumular el trayecto de vuelta al inicio,
@@ -15,9 +16,7 @@ void TSP( vector<vector<int>> ady, vector<bool> &visited, int nivel, int act, in
     for(int i = 0; i < ady.size(); i++)
     {
       if(!visited[i] && ady[act][i] != INT_MAX){
-        visited[i] = true;
         TSP(ady, visited, nivel+1, i, acum+ady[act][i], costo);
-        visited[i]= false;
       }
     }
     
@@ -32,7 +31,6 @@ int main() {
 
   vector<vector<int>> ady(n,vector<int>(n, INT_MAX));
   vector<bool> visited(n, false);
-  visited[0] = true;
   for(int i = 0; i < n; i++)
   {
     ady[i][i] = 0;
